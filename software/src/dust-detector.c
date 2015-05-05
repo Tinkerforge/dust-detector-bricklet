@@ -136,7 +136,6 @@ uint16_t analog_value_to_dust_density(uint16_t value) {
 void new_dust_density(void) {
 	uint16_t value = BA->adc_channel_get_data(BS->adc_channel);
 	if (BC->moving_average_num == 0) {
-		BC->last_value[SIMPLE_UNIT_DUST_DENSITY] = BC->value[SIMPLE_UNIT_DUST_DENSITY];
 		BC->value[SIMPLE_UNIT_DUST_DENSITY] = analog_value_to_dust_density(value);
 	}
 
@@ -147,7 +146,6 @@ void new_dust_density(void) {
 	BC->moving_average[BC->moving_average_tick] = value;
 	BC->moving_average_tick = (BC->moving_average_tick + 1) % BC->moving_average_num;
 
-	BC->last_value[SIMPLE_UNIT_DUST_DENSITY] = BC->value[SIMPLE_UNIT_DUST_DENSITY];
 	BC->value[SIMPLE_UNIT_DUST_DENSITY] =  analog_value_to_dust_density((BC->moving_average_sum + BC->moving_average_num/2)/BC->moving_average_num);
 }
 
@@ -175,7 +173,6 @@ void tick(const uint8_t tick_type) {
 	if(tick_type & TICK_TASK_TYPE_CALCULATION) {
 		BC->counter += 1;
 		if (BC->counter >= 10) {
-//			PIN_TEST.pio->PIO_SODR = PIN_TEST.mask;
 			uint32_t mode = ADC->ADC_MR;
 			uint32_t channel_status = ADC->ADC_CHSR;
 	
@@ -190,7 +187,6 @@ void tick(const uint8_t tick_type) {
 
 			volatile uint32_t tmp  = ADC->ADC_CDR[BS->adc_channel];
 
-//			PIN_TEST.pio->PIO_SODR = PIN_TEST.mask;
 			adc_start_conversion();
 
 			// Wait for 115us at most
@@ -201,7 +197,6 @@ void tick(const uint8_t tick_type) {
 				}
 				SLEEP_US(1);
 			}
-//			PIN_TEST.pio->PIO_CODR = PIN_TEST.mask;
 
 			PIN_LED.pio->PIO_CODR = PIN_LED.mask;
 			BC->counter = 0;
@@ -213,7 +208,6 @@ void tick(const uint8_t tick_type) {
 			ADC->ADC_CHER = channel_status;
 			ADC->ADC_MR = mode;
 			SLEEP_MS(1);
-//			PIN_TEST.pio->PIO_CODR = PIN_TEST.mask;
 		}
 	}
 }
