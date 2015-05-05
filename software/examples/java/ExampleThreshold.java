@@ -10,20 +10,20 @@ public class ExampleThreshold {
 	//       might normally want to catch are described in the documentation
 	public static void main(String args[]) throws Exception {
 		IPConnection ipcon = new IPConnection(); // Create IP connection
-		BrickletDustDetector al = new BrickletDustDetector(UID, ipcon); // Create device object
+		BrickletDustDetector dd = new BrickletDustDetector(UID, ipcon); // Create device object
 
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
-		al.setDebouncePeriod(10000);
+		dd.setDebouncePeriod(10000);
 
 		// Configure threshold for "greater than 10 µg/cm^3"
-		al.setDustDensityCallbackThreshold('>', (short)10, (short)0);
+		dd.setDustDensityCallbackThreshold('>', (short)10, (short)0);
 
 		// Add and implement dust density reached listener 
 		// (called if dust density is greater than 10µg/cm^3)
-		al.addDustDensityReachedListener(new BrickletDustDetector.DustDensityReachedListener() {
+		dd.addDustDensityReachedListener(new BrickletDustDetector.DustDensityReachedListener() {
 			public void dustDensityReached(int dustDensity) {
 				System.out.println("Dust Density: " + dustDensity + " µg/cm^3.");
 			}
