@@ -1,0 +1,33 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="amb"(* Change to your UID *)
+
+(* Create IPConnection and device object *)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+dd=NETNew["Tinkerforge.BrickletDustDetector",uid,ipcon]
+ipcon@Connect[host,port]
+
+(* Get threshold callbacks with a debounce time of 10 seconds (10000ms) *)
+dd@SetDebouncePeriod[10000]
+
+(* Callback for dust density greater than 10 µg/cm^3 *)
+DustDensityReachedCB[sender_,dust_density_]:=
+ Module[{},
+  Print["Dust Density "<>ToString[N[Quantity[dust_density,"µg/cm^3"]]]<>"."];
+ ]
+
+AddEventHandler[dd@DustDensityReached,DustDensityReachedCB]
+
+(* Configure threshold for "greater than 10 µg/cm^3" *)
+option=Tinkerforge`BrickletDustDetector`THRESHOLDUOPTIONUGREATER
+dd@SetDustDensityCallbackThreshold[option,10,0]
+
+Input["Click OK to exit"]
+
+(* Clean up *)
+ipcon@Disconnect[]
+ReleaseNETObject[dd]
+ReleaseNETObject[ipcon]
