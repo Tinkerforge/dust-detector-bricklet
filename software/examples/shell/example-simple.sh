@@ -4,5 +4,5 @@
 # change to your UID
 uid=ABC
 
-# get current dust density (unit is µg/cm^3)
+# get current dust density (unit is µg/m³)
 tinkerforge call dust-detector-bricklet $uid get-dust-density

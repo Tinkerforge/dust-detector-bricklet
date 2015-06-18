@@ -8,9 +8,9 @@ UID = "ABC" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_dust_detector import DustDetector
 
-# Callback function for dust density callback (parameter has unit µg/cm^3)
+# Callback function for dust density callback (parameter has unit µg/m³)
 def cb_dust_density(dust_density):
-    print('Dust Density: ' + str(dust_density) + ' µg/cm^3')
+    print('Dust Density: ' + str(dust_density) + ' µg/m³')
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection

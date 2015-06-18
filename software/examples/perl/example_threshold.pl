@@ -1,4 +1,4 @@
-#!/usr/bin/perl  
+#!/usr/bin/perl
 
 use Tinkerforge::IPConnection;
 use Tinkerforge::BrickletDustDetector;
@@ -10,12 +10,12 @@ use constant UID => 'ABC'; # Change to your UID
 my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection
 my $dd = Tinkerforge::BrickletDustDetector->new(&UID, $ipcon); # Create device object
 
-# Callback for dust density greater than 10 µg/cm^3
+# Callback for dust density greater than 10 µg/m³
 sub cb_reached
 {
     my ($dust_density) = @_;
 
-    print "Dust Density: ".$dust_density." µg/cm^3\n";
+    print "Dust Density: ".$dust_density." µg/m³\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
@@ -27,7 +27,7 @@ $dd->set_debounce_period(10000);
 # Register threshold reached callback to function cb_reached
 $dd->register_callback($dd->CALLBACK_DUST_DENSITY_REACHED, 'cb_reached');
 
-# Configure threshold for "greater than 10 µg/cm^3"
+# Configure threshold for "greater than 10 µg/m³"
 $dd->set_dust_density_callback_threshold('>', 10, 0);
 
 print "Press any key to exit...\n";

@@ -24,11 +24,10 @@ const
 var
   e: TExample;
 
-{ Callback for dust density greater than 200 µg/cm^3 }
-procedure TExample.ReachedCB(sender: TBrickletDustDetector; const dust density: word);
+{ Callback for dust density greater than 10 µg/m³ }
+procedure TExample.ReachedCB(sender: TBrickletDustDetector; const dustDensity: word);
 begin
-  WriteLn(Format('We have %f µg/cm^3.', [dust density/10.0]));
-  WriteLn('Too bright, close the curtains!');
+  WriteLn(Format('Dust Density: %u µg/m³', [dustDensity]));
 end;
 
 procedure TExample.Execute;
@@ -49,8 +48,8 @@ begin
   { Register threshold reached callback to procedure ReachedCB }
   al.OnDust DensityReached := {$ifdef FPC}@{$endif}ReachedCB;
 
-  { Configure threshold for "greater than 200 µg/cm^3" (unit is µg/cm^3/10) }
-  al.SetDust DensityCallbackThreshold('>', 200*10, 0);
+  { Configure threshold for "greater than 10 µg/m³" (unit is µg/m³) }
+  al.SetDust DensityCallbackThreshold('>', 10, 0);
 
   WriteLn('Press key to exit');
   ReadLn;

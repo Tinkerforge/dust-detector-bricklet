@@ -21,9 +21,9 @@ ipcon.connect HOST, PORT # Connect to brickd
 #       dust density has changed since the last call!
 dd.set_dust_density_callback_period 1000
 
-# Register dust density callback (parameter has unit µg/cm^3)
+# Register dust density callback (parameter has unit µg/m³)
 dd.register_callback(BrickletDustDetector::CALLBACK_DUST_DENSITY) do |dust_density|
-  puts "Dust Density: #{dust_density} µg/cm^3"
+  puts "Dust Density: #{dust_density} µg/m³"
 end
 
 puts 'Press key to exit'

@@ -1,4 +1,4 @@
-#!/usr/bin/perl  
+#!/usr/bin/perl
 
 use Tinkerforge::IPConnection;
 use Tinkerforge::BrickletDustDetector;
@@ -13,9 +13,9 @@ my $dd = Tinkerforge::BrickletDustDetector->new(&UID, $ipcon); # Create device o
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current dust density (unit is µg/cm^3)
+# Get current dust density (unit is µg/m³)
 my $dust_density = $dd->get_dust_density();
-print "Dust Density: $dust_density µg/cm^3\n";
+print "Dust Density: $dust_density µg/m³\n";
 
 print "Press any key to exit...\n";
 <STDIN>;

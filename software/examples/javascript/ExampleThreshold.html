@@ -34,7 +34,7 @@
                 var al = new Tinkerforge.BrickletDustDetector(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
                 ); // Connect to brickd
                 // Don't use device before ipcon is connected
@@ -43,16 +43,15 @@
                     function(connectReason) {
                         // Get threshold callbacks with a debounce time of 10 seconds (10000ms)
                         al.setDebouncePeriod(10000);
-                        // Configure threshold for "greater than 10 µg/cm^3"
+                        // Configure threshold for "greater than 10 µg/m³"
                         al.setDustDensityCallbackThreshold('>', 10, 0);
                     }
                 );
                 // Register threshold reached callback to function cb_reached
                 al.on(Tinkerforge.BrickletDustDetector.CALLBACK_DUST_DENSITY_REACHED,
-                    // Callback for dust density greater than 10 µg/cm^3
+                    // Callback for dust density greater than 10 µg/m³
                     function(dustDensity) {
-                        textArea.value += 'Dust Density ' +dustDensity + ' µg/cm^3.\n';
-                        textArea.value += '\n';
+                        textArea.value += 'Dust Density: ' + dustDensity + ' µg/m³\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

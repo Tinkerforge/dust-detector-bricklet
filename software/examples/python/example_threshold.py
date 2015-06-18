@@ -8,9 +8,9 @@ UID = "ABC" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_dust_detector import DustDetector
 
-# Callback for dust density greater than 10 µg/cm^3
+# Callback for dust density greater than 10 µg/m³
 def cb_reached(dust_density):
-    print('Dust Density ' + str(dust_density) + ' µg/cm^3.')
+    print('Dust Density: ' + str(dust_density) + ' µg/m³')
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Register threshold reached callback to function cb_reached
     dd.register_callback(dd.CALLBACK_DUST_DENSITY_REACHED, cb_reached)
 
-    # Configure threshold for "greater than 10 µg/cm^3"
+    # Configure threshold for "greater than 10 µg/m³"
     dd.set_dust_density_callback_threshold('>', 10, 0)
 
     raw_input('Press key to exit\n') # Use input() in Python 3

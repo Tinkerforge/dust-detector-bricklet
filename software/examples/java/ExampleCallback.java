@@ -16,14 +16,14 @@ public class ExampleCallback {
 		// Don't use device before ipcon is connected
 
 		// Set Period for dust density callback to 1s (1000ms)
-		// Note: The dust density callback is only called every second if the 
+		// Note: The dust density callback is only called every second if the
 		//       dust density has changed since the last call!
 		dd.setDustDensityCallbackPeriod(1000);
 
 		// Add and implement dust density listener (called if dust density changes)
 		dd.addDustDensityListener(new BrickletDustDetector.DustDensityListener() {
 			public void dustDensity(int dustDensity) {
-				System.out.println("Dust Density: " + dustDensity + " µg/cm^3");
+				System.out.println("Dust Density: " + dustDensity + " µg/m³");
 			}
 		});
 

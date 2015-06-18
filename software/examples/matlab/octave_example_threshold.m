@@ -14,9 +14,9 @@ function octave_example_threshold()
     % Set threshold callbacks with a debounce time of 10 seconds (10000ms)
     dd.setDebouncePeriod(10000);
 
-    % Configure threshold for "greater than 10 µg/cm^3"
+    % Configure threshold for "greater than 10 µg/m³"
     dd.setDustDensityCallbackThreshold(dd.THRESHOLD_OPTION_GREATER, 10, 0);
-    
+
     % Register threshold reached callback to function cb_reached
     dd.addDustDensityReachedCallback(@cb_reached);
 
@@ -24,7 +24,7 @@ function octave_example_threshold()
     ipcon.disconnect();
 end
 
-% Callback function for distance callback (parameter has unit µg/cm^3)
+% Callback for dust density greater than 10 µg/m³ (parameter has unit µg/m³)
 function cb_reached(e)
-    fprintf("Dust Density: %g µg/cm^3\n", e.dustDensity);
+    fprintf("Dust Density: %g µg/m³\n", e.dustDensity);
 end

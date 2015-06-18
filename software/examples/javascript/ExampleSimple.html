@@ -41,13 +41,13 @@
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
                     function(connectReason) {
-                        // Get current dust density (unit is µg/cm^3)
+                        // Get current dust density (unit is µg/m³)
                         al.getDustDensity(
                             function(dustDensity) {
-                                textArea.value += 'Dust Density: '+dustDensity+' µg/cm^3\n';
+                                textArea.value += 'Dust Density: ' + dustDensity + ' µg/m³\n';
                             },
                             function(error) {
-                                textArea.value += 'Error: '+error+'\n';
+                                textArea.value += 'Error: ' + error + '\n';
                             }
                         );
                     }

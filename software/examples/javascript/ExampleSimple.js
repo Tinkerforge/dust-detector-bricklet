@@ -16,13 +16,13 @@ ipcon.connect(HOST, PORT,
 // Don't use device before ipcon is connected
 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function(connectReason) {
-        // Get current dust density (unit is µg/cm^3)
+        // Get current dust density (unit is µg/m³)
         dd.getDustDensity(
             function(dustDensity) {
-                console.log('Dust Density: '+dustDensity+' µg/cm^3');
+                console.log('Dust Density: ' + dustDensity + ' µg/m³');
             },
             function(error) {
-                console.log('Error: '+error);
+                console.log('Error: ' + error);
             }
         );
     }

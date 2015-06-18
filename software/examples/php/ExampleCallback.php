@@ -10,10 +10,10 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'ABC'; // Change to your UID
 
-// Callback function for dust density callback (parameter has unit µg/cm^3)
+// Callback function for dust density callback (parameter has unit µg/m³)
 function cb_dust_density($dust_density)
 {
-    echo "Dust Density: " . $dust_density . " µg/cm^3\n";
+    echo "Dust Density: " . $dust_density . " µg/m³\n";
 }
 
 $ipcon = new IPConnection(); // Create IP connection

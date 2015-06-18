@@ -10,10 +10,10 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'ABC'; // Change to your UID
 
-// Callback for dust density greater than 10 µg/cm^3
+// Callback for dust density greater than 10 µg/m³
 function cb_reached($dust_density)
 {
-    echo "Dust Density " . $dust_density . " µg/cm^3.\n";
+    echo "Dust Density: " . $dust_density . " µg/m³\n";
 }
 
 $ipcon = new IPConnection(); // Create IP connection
@@ -28,7 +28,7 @@ $dd->setDebouncePeriod(10000);
 // Register threshold reached callback to function cb_reached
 $dd->registerCallback(BrickletDustDetector::CALLBACK_DUST_DENSITY_REACHED, 'cb_reached');
 
-// Configure threshold for "greater than 10 µg/cm^3"
+// Configure threshold for "greater than 10 µg/m³"
 $dd->setDustDensityCallbackThreshold('>', 10, 0);
 
 echo "Press ctrl+c to exit\n";

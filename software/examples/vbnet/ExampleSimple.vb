@@ -12,10 +12,10 @@ Module ExampleSimple
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
-        ' Get current dust density (unit is µg/cm^3)
+        ' Get current dust density (unit is µg/m³)
         Dim dustDensity As Integer = dd.GetDustDensity()
 
-        System.Console.WriteLine("Dust Density: " + (dustDensity).ToString() + " µg/cm^3")
+        System.Console.WriteLine("Dust Density: " + (dustDensity).ToString() + " µg/m³")
 
         System.Console.WriteLine("Press key to exit")
         System.Console.ReadLine()

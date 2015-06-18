@@ -36,9 +36,9 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Get current dust density (unit is µg/cm^3) }
+  { Get current dust density (unit is µg/m³) }
   dustDensity := dd.GetDustDensity;
-  WriteLn(Format('Dust Density: %d µg/cm^3', [dustDensity]));
+  WriteLn(Format('Dust Density: %u µg/m³', [dustDensity]));
 
   WriteLn('Press key to exit');
   ReadLn;

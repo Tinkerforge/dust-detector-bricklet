@@ -5,9 +5,9 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "ABC" ' Change to your UID
 
-    ' Callback for dust density greater than 10 µg/cm^3
+    ' Callback for dust density greater than 10 µg/m³
     Sub ReachedCB(ByVal sender As BrickletDustDetector, ByVal dustDensity As Integer)
-        System.Console.WriteLine("Dust Density " + dustDensity.ToString() + " µg/cm^3.")
+        System.Console.WriteLine("Dust Density: " + dustDensity.ToString() + " µg/m³")
     End Sub
 
     Sub Main()
@@ -23,7 +23,7 @@ Module ExampleThreshold
         ' Register threshold reached callback to function ReachedCB
         AddHandler dd.DustDensityReached, AddressOf ReachedCB
 
-        ' Configure threshold for "greater than 10 µg/cm^3"
+        ' Configure threshold for "greater than 10 µg/m³"
         dd.SetDustDensityCallbackThreshold(">"C, 10, 0)
 
         System.Console.WriteLine("Press key to exit")

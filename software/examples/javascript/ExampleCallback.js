@@ -25,9 +25,9 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
 
 // Register position callback
 al.on(Tinkerforge.BrickletDustDetector.CALLBACK_DUST_DENSITY,
-    // Callback function for dust density callback (parameter has unit µg/cm^3)
+    // Callback function for dust density callback (parameter has unit µg/m³)
     function(dustDensity) {
-        console.log('Dust Density: '+dustDensity+' µg/cm^3');
+        console.log('Dust Density: ' + dustDensity + ' µg/m³');
     }
 );
 

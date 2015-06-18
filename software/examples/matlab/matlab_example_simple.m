@@ -12,10 +12,10 @@ function matlab_example_simple()
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-	% Get current dust density
-	dust_density = dd.getDustDensity();
-    
-    fprintf('Dust Density: %g µg/cm^3\n', dust_density);
+    % Get current dust density
+    dust_density = dd.getDustDensity();
+
+    fprintf('Dust Density: %g µg/m³\n', dust_density);
 
     input('Press any key to exit...\n', 's');
     ipcon.disconnect();

@@ -14,7 +14,7 @@ int main() {
 
 	// Create device object
 	DustDetector dd;
-	dust_detector_create(&dd, UID, &ipcon); 
+	dust_detector_create(&dd, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -23,14 +23,14 @@ int main() {
 	}
 	// Don't use device before ipcon is connected
 
-	// Get current dust density (unit is µg/cm^3)
+	// Get current dust density (unit is µg/m³)
 	uint16_t dust_density;
 	if(dust_detector_get_dust_density(&dd, &dust_density) < 0) {
 		fprintf(stderr, "Could not get value, probably timeout\n");
 		exit(1);
 	}
 
-	printf("Dust Density: %d µg/cm^3\n", dust_density);
+	printf("Dust Density: %u µg/m³\n", dust_density);
 
 	printf("Press key to exit\n");
 	getchar();

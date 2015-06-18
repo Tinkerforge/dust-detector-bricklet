@@ -6,13 +6,13 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "ABC"; // Change to your UID
 
-	// Callback for dust density greater than 10 µg/cm^3
+	// Callback for dust density greater than 10 µg/m³
 	static void ReachedCB(BrickletDustDetector sender, int dustDensity)
 	{
-		System.Console.WriteLine("Dust Density " + dustDensity + " µg/cm^3.");
+		System.Console.WriteLine("Dust Density: " + dustDensity + " µg/m³");
 	}
 
-	static void Main() 
+	static void Main()
 	{
 		IPConnection ipcon = new IPConnection(); // Create IP connection
 		BrickletDustDetector dd = new BrickletDustDetector(UID, ipcon); // Create device object
@@ -26,7 +26,7 @@ class Example
 		// Register threshold reached callback to function ReachedCB
 		dd.DustDensityReached += ReachedCB;
 
-		// Configure threshold for "greater than 10 µg/cm^3"
+		// Configure threshold for "greater than 10 µg/m³" (unit is µg/m³)
 		dd.SetDustDensityCallbackThreshold('>', 10, 0);
 
 		System.Console.WriteLine("Press enter to exit");

@@ -3,15 +3,15 @@ LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
 
 host="localhost"
 port=4223
-uid="amb"(* Change to your UID *)
+uid="sEp"(* Change to your UID *)
 
 (* Create IPConnection and device object *)
 ipcon=NETNew["Tinkerforge.IPConnection"]
 dd=NETNew["Tinkerforge.BrickletDustDetector",uid,ipcon]
 ipcon@Connect[host,port]
 
-(* Get current dust density (unit is µg/cm^3) *)
-Print["Dust Density: "<>ToString[N[Quantity[dd@GetDustDensity[],"µg/cm^3"]]]]
+(* Get current dust density (unit is µg/m³) *)
+Print["Dust Density: "<>ToString[N[Quantity[dd@GetDustDensity[],"µg/m³"]]]]
 
 (* Clean up *)
 ipcon@Disconnect[]

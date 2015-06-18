@@ -9,5 +9,5 @@ uid=ABC
 #       dust density has changed since the last call!
 tinkerforge call dust-detector-bricklet $uid set-dust-density-callback-period 1000
 
-# handle incoming dust density callbacks (unit is µg/cm^3)
+# handle incoming dust density callbacks (unit is µg/m³)
 tinkerforge dispatch dust-detector-bricklet $uid dust-density

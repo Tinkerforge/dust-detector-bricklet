@@ -18,14 +18,14 @@ function matlab_example_threshold()
     % Register threshold reached callback to function cb_reached
     set(dd, 'DustDensityReachedCallback', @(h, e) cb_reached(e));
 
-    % Configure threshold for "greater than 10 µg/cm^3"
+    % Configure threshold for "greater than 10 µg/m³"
     dd.setDustDensityCallbackThreshold('>', 10, 0);
 
     input('Press any key to exit...\n', 's');
     ipcon.disconnect();
 end
 
-% Callback for distance greater than 20 cm
+% Callback for dust density greater than 10 µg/m³ (parameter has unit µg/m³)
 function cb_reached(e)
-    fprintf('Dust Density: %g µg/cm^3\n', e.dustDensity);
+    fprintf('Dust Density: %g µg/m³\n', e.dustDensity);
 end

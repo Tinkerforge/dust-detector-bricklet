@@ -49,10 +49,9 @@
                 );
                 // Register position callback
                 al.on(Tinkerforge.BrickletDustDetector.CALLBACK_DUST_DENSITY,
-                    // Callback function for dust density callback (parameter has unit µg/cm^3)
+                    // Callback function for dust density callback (parameter has unit µg/m³)
                     function(dustDensity) {
-                        textArea.value += 'Dust Density: '+dustDensity+' µg/cm^3';
-                        textArea.value += '\n';
+                        textArea.value += 'Dust Density: ' + dustDensity + ' µg/m³\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

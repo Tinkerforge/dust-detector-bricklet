@@ -7,11 +7,11 @@
 #define PORT 4223
 #define UID "ABC" // Change to your UID
 
-// Callback for dust density greater than 10 µg/cm^3
+// Callback for dust density greater than 10 µg/m³
 void cb_reached(uint16_t dust_density, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Dust Density %d µg/cm^3.\n", dust_density);
+	printf("Dust Density: %u µg/m³\n", dust_density);
 }
 
 int main() {
@@ -21,7 +21,7 @@ int main() {
 
 	// Create device object
 	DustDetector dd;
-	dust_detector_create(&dd, UID, &ipcon); 
+	dust_detector_create(&dd, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -39,7 +39,7 @@ int main() {
 	                                (void *)cb_reached,
 	                                NULL);
 
-	// Configure threshold for "greater than 10 µg/cm^3"
+	// Configure threshold for "greater than 10 µg/m³" (unit is µg/m³)
 	dust_detector_set_dust_density_callback_threshold(&dd, '>', 10, 0);
 
 	printf("Press key to exit\n");
