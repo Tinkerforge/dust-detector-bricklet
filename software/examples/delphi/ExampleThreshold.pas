@@ -10,9 +10,9 @@ type
   TExample = class
   private
     ipcon: TIPConnection;
-    al: TBrickletDustDetector;
+    dd: TBrickletDustDetector;
   public
-    procedure ReachedCB(sender: TBrickletDustDetector; const dust density: word);
+    procedure ReachedCB(sender: TBrickletDustDetector; const dustDensity: word);
     procedure Execute;
   end;
 
@@ -36,20 +36,20 @@ begin
   ipcon := TIPConnection.Create;
 
   { Create device object }
-  al := TBrickletDustDetector.Create(UID, ipcon);
+  dd := TBrickletDustDetector.Create(UID, ipcon);
 
   { Connect to brickd }
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
   { Get threshold callbacks with a debounce time of 10 seconds (10000ms) }
-  al.SetDebouncePeriod(10000);
+  dd.SetDebouncePeriod(10000);
 
   { Register threshold reached callback to procedure ReachedCB }
-  al.OnDust DensityReached := {$ifdef FPC}@{$endif}ReachedCB;
+  dd.OnDustDensityReached := {$ifdef FPC}@{$endif}ReachedCB;
 
   { Configure threshold for "greater than 10 µg/m³" (unit is µg/m³) }
-  al.SetDust DensityCallbackThreshold('>', 10, 0);
+  dd.SetDustDensityCallbackThreshold('>', 10, 0);
 
   WriteLn('Press key to exit');
   ReadLn;
