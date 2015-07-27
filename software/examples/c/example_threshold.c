@@ -5,13 +5,13 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "ABC" // Change to your UID
+#define UID "XYZ" // Change to your UID
 
-// Callback for dust density greater than 10 µg/m³
-void cb_reached(uint16_t dust_density, void *user_data) {
+// Callback function for dust density greater than 10 µg/m³ (parameter has unit µg/m³)
+void cb_dust_density_reached(uint16_t dust_density, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Dust Density: %u µg/m³\n", dust_density);
+	printf("Dust Density: %d µg/m³\n", dust_density);
 }
 
 int main() {
@@ -33,10 +33,10 @@ int main() {
 	// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 	dust_detector_set_debounce_period(&dd, 10000);
 
-	// Register threshold reached callback to function cb_reached
+	// Register threshold reached callback to function cb_dust_density_reached
 	dust_detector_register_callback(&dd,
 	                                DUST_DETECTOR_CALLBACK_DUST_DENSITY_REACHED,
-	                                (void *)cb_reached,
+	                                (void *)cb_dust_density_reached,
 	                                NULL);
 
 	// Configure threshold for "greater than 10 µg/m³" (unit is µg/m³)

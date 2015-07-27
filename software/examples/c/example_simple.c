@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "ABC" // Change to your UID
+#define UID "XYZ" // Change to your UID
 
 int main() {
 	// Create IP connection
@@ -26,11 +26,11 @@ int main() {
 	// Get current dust density (unit is µg/m³)
 	uint16_t dust_density;
 	if(dust_detector_get_dust_density(&dd, &dust_density) < 0) {
-		fprintf(stderr, "Could not get value, probably timeout\n");
+		fprintf(stderr, "Could not get dust density, probably timeout\n");
 		exit(1);
 	}
 
-	printf("Dust Density: %u µg/m³\n", dust_density);
+	printf("Dust Density: %d µg/m³\n", dust_density);
 
 	printf("Press key to exit\n");
 	getchar();

@@ -5,13 +5,13 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "ABC" // Change to your UID
+#define UID "XYZ" // Change to your UID
 
 // Callback function for dust density callback (parameter has unit µg/m³)
 void cb_dust_density(uint16_t dust_density, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Dust Density: %u µg/m³\n", dust_density);
+	printf("Dust Density: %d µg/m³\n", dust_density);
 }
 
 int main() {
@@ -30,9 +30,9 @@ int main() {
 	}
 	// Don't use device before ipcon is connected
 
-	// Set Period for dust density callback to 1s (1000ms)
-	// Note: The dust density callback is only called every second if the
-	//       dust density has changed since the last call!
+	// Set period for dust density callback to 1s (1000ms)
+	// Note: The dust density callback is only called every second
+	//       if the dust density has changed since the last call!
 	dust_detector_set_dust_density_callback_period(&dd, 1000);
 
 	// Register dust density callback to function cb_dust_density

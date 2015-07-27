@@ -4,10 +4,10 @@ class Example
 {
 	private static string HOST = "localhost";
 	private static int PORT = 4223;
-	private static string UID = "ABC"; // Change to your UID
+	private static string UID = "XYZ"; // Change to your UID
 
-	// Callback for dust density greater than 10 µg/m³
-	static void ReachedCB(BrickletDustDetector sender, int dustDensity)
+	// Callback function for dust density greater than 10 µg/m³ (parameter has unit µg/m³)
+	static void DustDensityReachedCB(BrickletDustDetector sender, int dustDensity)
 	{
 		System.Console.WriteLine("Dust Density: " + dustDensity + " µg/m³");
 	}
@@ -23,8 +23,8 @@ class Example
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		dd.SetDebouncePeriod(10000);
 
-		// Register threshold reached callback to function ReachedCB
-		dd.DustDensityReached += ReachedCB;
+		// Register threshold reached callback to function DustDensityReachedCB
+		dd.DustDensityReached += DustDensityReachedCB;
 
 		// Configure threshold for "greater than 10 µg/m³" (unit is µg/m³)
 		dd.SetDustDensityCallbackThreshold('>', 10, 0);

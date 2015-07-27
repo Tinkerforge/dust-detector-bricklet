@@ -4,7 +4,7 @@ class Example
 {
 	private static string HOST = "localhost";
 	private static int PORT = 4223;
-	private static string UID = "ABC"; // Change to your UID
+	private static string UID = "XYZ"; // Change to your UID
 
 	static void Main()
 	{
@@ -16,7 +16,6 @@ class Example
 
 		// Get current dust density (unit is µg/m³)
 		int dustDensity = dd.GetDustDensity();
-
 		System.Console.WriteLine("Dust Density: " + dustDensity + " µg/m³");
 
 		System.Console.WriteLine("Press enter to exit");
