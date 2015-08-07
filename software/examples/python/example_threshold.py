@@ -6,7 +6,7 @@ PORT = 4223
 UID = "XYZ" # Change to your UID
 
 from tinkerforge.ip_connection import IPConnection
-from tinkerforge.bricklet_dust_detector import DustDetector
+from tinkerforge.bricklet_dust_detector import BrickletDustDetector
 
 # Callback function for dust density greater than 10 µg/m³ (parameter has unit µg/m³)
 def cb_dust_density_reached(dust_density):
@@ -14,7 +14,7 @@ def cb_dust_density_reached(dust_density):
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
-    dd = DustDetector(UID, ipcon) # Create device object
+    dd = BrickletDustDetector(UID, ipcon) # Create device object
 
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
