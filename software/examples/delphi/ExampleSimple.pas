@@ -18,7 +18,7 @@ type
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'ABC'; { Change to your UID }
+  UID = 'XYZ'; { Change to your UID }
 
 var
   e: TExample;
@@ -38,7 +38,7 @@ begin
 
   { Get current dust density (unit is µg/m³) }
   dustDensity := dd.GetDustDensity;
-  WriteLn(Format('Dust Density: %u µg/m³', [dustDensity]));
+  WriteLn(Format('Dust Density: %d µg/m³', [dustDensity]));
 
   WriteLn('Press key to exit');
   ReadLn;

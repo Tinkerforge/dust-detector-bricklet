@@ -19,15 +19,15 @@ type
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'ABC'; { Change to your UID }
+  UID = 'XYZ'; { Change to your UID }
 
 var
   e: TExample;
 
-{ Callback function for dust density callback (parameter has unit µg/m³) }
+{ Callback procedure for dust density callback (parameter has unit µg/m³) }
 procedure TExample.DustDensityCB(sender: TBrickletDustDetector; const dustDensity: word);
 begin
-  WriteLn(Format('Dust Density: %u µg/m³', [dustDensity]));
+  WriteLn(Format('Dust Density: %d µg/m³', [dustDensity]));
 end;
 
 procedure TExample.Execute;
@@ -42,9 +42,9 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Set Period for dust density callback to 1s (1000ms)
-    Note: The dust density callback is only called every second if the
-          dust density has changed since the last call! }
+  { Set period for dust density callback to 1s (1000ms)
+    Note: The dust density callback is only called every second
+          if the dust density has changed since the last call! }
   dd.SetDustDensityCallbackPeriod(1000);
 
   { Register dust density callback to procedure DustDensityCB }
