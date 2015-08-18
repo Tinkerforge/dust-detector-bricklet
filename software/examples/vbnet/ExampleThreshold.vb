@@ -3,10 +3,10 @@ Imports Tinkerforge
 Module ExampleThreshold
     Const HOST As String = "localhost"
     Const PORT As Integer = 4223
-    Const UID As String = "ABC" ' Change to your UID
+    Const UID As String = "XYZ" ' Change to your UID
 
-    ' Callback for dust density greater than 10 µg/m³
-    Sub ReachedCB(ByVal sender As BrickletDustDetector, ByVal dustDensity As Integer)
+    ' Callback function for dust density greater than 10 µg/m³ (parameter has unit µg/m³)
+    Sub DustDensityReachedCB(ByVal sender As BrickletDustDetector, ByVal dustDensity As Integer)
         System.Console.WriteLine("Dust Density: " + dustDensity.ToString() + " µg/m³")
     End Sub
 
@@ -20,10 +20,10 @@ Module ExampleThreshold
         ' Get threshold callbacks with a debounce time of 10 seconds (10000ms)
         dd.SetDebouncePeriod(10000)
 
-        ' Register threshold reached callback to function ReachedCB
-        AddHandler dd.DustDensityReached, AddressOf ReachedCB
+        ' Register threshold reached callback to function DustDensityReachedCB
+        AddHandler dd.DustDensityReached, AddressOf DustDensityReachedCB
 
-        ' Configure threshold for "greater than 10 µg/m³"
+        ' Configure threshold for "greater than 10 µg/m³" (unit is µg/m³)
         dd.SetDustDensityCallbackThreshold(">"C, 10, 0)
 
         System.Console.WriteLine("Press key to exit")

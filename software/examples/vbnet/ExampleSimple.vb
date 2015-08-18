@@ -3,7 +3,7 @@ Imports Tinkerforge
 Module ExampleSimple
     Const HOST As String = "localhost"
     Const PORT As Integer = 4223
-    Const UID As String = "ABC" ' Change to your UID
+    Const UID As String = "XYZ" ' Change to your UID
 
     Sub Main()
         Dim ipcon As New IPConnection() ' Create IP connection
@@ -14,7 +14,6 @@ Module ExampleSimple
 
         ' Get current dust density (unit is µg/m³)
         Dim dustDensity As Integer = dd.GetDustDensity()
-
         System.Console.WriteLine("Dust Density: " + dustDensity.ToString() + " µg/m³")
 
         System.Console.WriteLine("Press key to exit")
