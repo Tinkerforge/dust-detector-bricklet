@@ -15,7 +15,7 @@ sub cb_dust_density
 {
     my ($dust_density) = @_;
 
-    print "Dust Density: " . $dust_density . " µg/m³\n";
+    print "Dust Density: $dust_density µg/m³\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
