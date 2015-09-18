@@ -19,12 +19,12 @@ ipcon.connect HOST, PORT # Connect to brickd
 # Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 dd.set_debounce_period 10000
 
-# Register threshold reached callback for dust density greater than 10 µg/m³ (parameter has unit µg/m³)
+# Register dust density reached callback (parameter has unit µg/m³)
 dd.register_callback(BrickletDustDetector::CALLBACK_DUST_DENSITY_REACHED) do |dust_density|
   puts "Dust Density: #{dust_density} µg/m³"
 end
 
-# Configure threshold for "greater than 10 µg/m³" (unit is µg/m³)
+# Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
 dd.set_dust_density_callback_threshold '>', 10, 0
 
 puts 'Press key to exit'

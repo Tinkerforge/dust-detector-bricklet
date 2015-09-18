@@ -10,7 +10,7 @@ from tinkerforge.bricklet_dust_detector import BrickletDustDetector
 
 # Callback function for dust density callback (parameter has unit µg/m³)
 def cb_dust_density(dust_density):
-    print('Dust Density: ' + str(dust_density) + ' µg/m³')
+    print("Dust Density: " + str(dust_density) + " µg/m³")
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
@@ -19,13 +19,13 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
+    # Register dust density callback to function cb_dust_density
+    dd.register_callback(dd.CALLBACK_DUST_DENSITY, cb_dust_density)
+
     # Set period for dust density callback to 1s (1000ms)
     # Note: The dust density callback is only called every second
     #       if the dust density has changed since the last call!
     dd.set_dust_density_callback_period(1000)
 
-    # Register dust density callback to function cb_dust_density
-    dd.register_callback(dd.CALLBACK_DUST_DENSITY, cb_dust_density)
-
-    raw_input('Press key to exit\n') # Use input() in Python 3
+    raw_input("Press key to exit\n") # Use input() in Python 3
     ipcon.disconnect()

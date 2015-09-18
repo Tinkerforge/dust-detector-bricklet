@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     # Get current dust density (unit is µg/m³)
     dust_density = dd.get_dust_density()
-    print('Dust Density: ' + str(dust_density) + ' µg/m³')
+    print("Dust Density: " + str(dust_density) + " µg/m³")
 
-    raw_input('Press key to exit\n') # Use input() in Python 3
+    raw_input("Press key to exit\n") # Use input() in Python 3
     ipcon.disconnect()

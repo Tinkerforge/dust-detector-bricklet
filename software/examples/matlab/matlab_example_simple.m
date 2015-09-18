@@ -4,7 +4,7 @@ function matlab_example_simple()
 
     HOST = 'localhost';
     PORT = 4223;
-    UID = 'ABC'; % Change to your UID
+    UID = 'XYZ'; % Change to your UID
 
     ipcon = IPConnection(); % Create IP connection
     dd = BrickletDustDetector(UID, ipcon); % Create device object
@@ -12,11 +12,10 @@ function matlab_example_simple()
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Get current dust density
-    dust_density = dd.getDustDensity();
+    % Get current dust density (unit is µg/m³)
+    dustDensity = dd.getDustDensity();
+    fprintf('Dust Density: %i µg/m³\n', dustDensity);
 
-    fprintf('Dust Density: %g µg/m³\n', dust_density);
-
-    input('Press any key to exit...\n', 's');
+    input('Press key to exit\n', 's');
     ipcon.disconnect();
 end

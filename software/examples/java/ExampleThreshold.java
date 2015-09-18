@@ -6,8 +6,8 @@ public class ExampleThreshold {
 	private static final int PORT = 4223;
 	private static final String UID = "XYZ"; // Change to your UID
 
-	// Note: To make the example code cleaner we do not handle exceptions. Exceptions you
-	//       might normally want to catch are described in the documentation
+	// Note: To make the example code cleaner we do not handle exceptions. Exceptions
+	//       you might normally want to catch are described in the documentation
 	public static void main(String args[]) throws Exception {
 		IPConnection ipcon = new IPConnection(); // Create IP connection
 		BrickletDustDetector dd = new BrickletDustDetector(UID, ipcon); // Create device object
@@ -18,15 +18,15 @@ public class ExampleThreshold {
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		dd.setDebouncePeriod(10000);
 
-		// Configure threshold for "greater than 10 µg/m³" (unit is µg/m³)
-		dd.setDustDensityCallbackThreshold('>', 10, 0);
-
-		// Add threshold reached listener for dust density greater than 10 µg/m³ (parameter has unit µg/m³)
+		// Add dust density reached listener (parameter has unit µg/m³)
 		dd.addDustDensityReachedListener(new BrickletDustDetector.DustDensityReachedListener() {
 			public void dustDensityReached(int dustDensity) {
 				System.out.println("Dust Density: " + dustDensity + " µg/m³");
 			}
 		});
+
+		// Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
+		dd.setDustDensityCallbackThreshold('>', 10, 0);
 
 		System.out.println("Press key to exit"); System.in.read();
 		ipcon.disconnect();

@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -16,10 +17,10 @@ class Example
 
 		// Get current dust density (unit is µg/m³)
 		int dustDensity = dd.GetDustDensity();
-		System.Console.WriteLine("Dust Density: " + dustDensity + " µg/m³");
+		Console.WriteLine("Dust Density: " + dustDensity + " µg/m³");
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

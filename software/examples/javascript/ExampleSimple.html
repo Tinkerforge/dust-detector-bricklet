@@ -31,22 +31,22 @@
                     ipcon.disconnect();
                 }
                 ipcon = new Tinkerforge.IPConnection(); // Create IP connection
-                var al = new Tinkerforge.BrickletDustDetector(UID, ipcon); // Create device object
+                var dd = new Tinkerforge.BrickletDustDetector(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
                 ); // Connect to brickd
                 // Don't use device before ipcon is connected
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
+                    function (connectReason) {
                         // Get current dust density (unit is µg/m³)
-                        al.getDustDensity(
-                            function(dustDensity) {
+                        dd.getDustDensity(
+                            function (dustDensity) {
                                 textArea.value += 'Dust Density: ' + dustDensity + ' µg/m³\n';
                             },
-                            function(error) {
+                            function (error) {
                                 textArea.value += 'Error: ' + error + '\n';
                             }
                         );

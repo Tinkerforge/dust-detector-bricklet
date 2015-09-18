@@ -30,16 +30,16 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Set period for dust density callback to 1s (1000ms)
-	// Note: The dust density callback is only called every second
-	//       if the dust density has changed since the last call!
-	dust_detector_set_dust_density_callback_period(&dd, 1000);
-
 	// Register dust density callback to function cb_dust_density
 	dust_detector_register_callback(&dd,
 	                                DUST_DETECTOR_CALLBACK_DUST_DENSITY,
 	                                (void *)cb_dust_density,
 	                                NULL);
+
+	// Set period for dust density callback to 1s (1000ms)
+	// Note: The dust density callback is only called every second
+	//       if the dust density has changed since the last call!
+	dust_detector_set_dust_density_callback_period(&dd, 1000);
 
 	printf("Press key to exit\n");
 	getchar();

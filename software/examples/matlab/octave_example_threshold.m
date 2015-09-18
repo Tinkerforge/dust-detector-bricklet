@@ -3,7 +3,7 @@ function octave_example_threshold()
 
     HOST = "localhost";
     PORT = 4223;
-    UID = "ABC"; % Change to your UID
+    UID = "XYZ"; % Change to your UID
 
     ipcon = java_new("com.tinkerforge.IPConnection"); % Create IP connection
     dd = java_new("com.tinkerforge.BrickletDustDetector", UID, ipcon); % Create device object
@@ -11,20 +11,20 @@ function octave_example_threshold()
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Set threshold callbacks with a debounce time of 10 seconds (10000ms)
+    % Get threshold callbacks with a debounce time of 10 seconds (10000ms)
     dd.setDebouncePeriod(10000);
 
-    % Configure threshold for "greater than 10 µg/m³"
-    dd.setDustDensityCallbackThreshold(dd.THRESHOLD_OPTION_GREATER, 10, 0);
+    % Register dust density reached callback to function cb_dust_density_reached
+    dd.addDustDensityReachedCallback(@cb_dust_density_reached);
 
-    % Register threshold reached callback to function cb_reached
-    dd.addDustDensityReachedCallback(@cb_reached);
+    % Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
+    dd.setDustDensityCallbackThreshold(">", 10, 0);
 
-    input("Press any key to exit...\n", "s");
+    input("Press key to exit\n", "s");
     ipcon.disconnect();
 end
 
-% Callback for dust density greater than 10 µg/m³ (parameter has unit µg/m³)
-function cb_reached(e)
-    fprintf("Dust Density: %g µg/m³\n", e.dustDensity);
+% Callback function for dust density reached callback (parameter has unit µg/m³)
+function cb_dust_density_reached(e)
+    fprintf("Dust Density: %d µg/m³\n", e.dustDensity);
 end

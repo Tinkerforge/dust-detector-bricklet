@@ -15,8 +15,8 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 
 # Get current dust density (unit is µg/m³)
 my $dust_density = $dd->get_dust_density();
-print "Dust Density: " . $dust_density . " µg/m³\n";
+print "Dust Density: $dust_density µg/m³\n";
 
-print "Press any key to exit...\n";
+print "Press key to exit\n";
 <STDIN>;
 $ipcon->disconnect();

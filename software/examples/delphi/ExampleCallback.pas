@@ -42,13 +42,13 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
+  { Register dust density callback to procedure DustDensityCB }
+  dd.OnDustDensity := {$ifdef FPC}@{$endif}DustDensityCB;
+
   { Set period for dust density callback to 1s (1000ms)
     Note: The dust density callback is only called every second
           if the dust density has changed since the last call! }
   dd.SetDustDensityCallbackPeriod(1000);
-
-  { Register dust density callback to procedure DustDensityCB }
-  dd.OnDustDensity := {$ifdef FPC}@{$endif}DustDensityCB;
 
   WriteLn('Press key to exit');
   ReadLn;

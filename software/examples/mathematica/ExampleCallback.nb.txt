@@ -3,26 +3,26 @@ LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
 
 host="localhost"
 port=4223
-uid="sEp"(* Change to your UID *)
+uid="XYZ"(*Change to your UID*)
 
-(* Create IPConnection and device object *)
+(*Create IPConnection and device object*)
 ipcon=NETNew["Tinkerforge.IPConnection"]
 dd=NETNew["Tinkerforge.BrickletDustDetector",uid,ipcon]
 ipcon@Connect[host,port]
 
-(* Set Period for dust density callback to 1s (1000ms) *)
-(* Note: The dust density callback is only called every second if the *)
-(*       dust density has changed since the last call! *)
-dd@SetDustDensityCallbackPeriod[1000]
-
-(* Callback function for dust density callback (parameter has unit µg/m³) *)
+(*Callback function for dust density callback (parameter has unit µg/m³)*)
 DustDensityCB[sender_,dustDensity_]:=
-Print["Dust Density: "<>ToString[N[Quantity[dustDensity,"µg/m³"]]]]
+ Print["Dust Density: "<>ToString[N[Quantity[dustDensity,"µg/m³"]]]]
 AddEventHandler[dd@DustDensity,DustDensityCB]
+
+(*Set period for dust density callback to 1s (1000ms)*)
+(*Note: The dust density callback is only called every second*)
+(*if the dust density has changed since the last call!*)
+dd@SetDustDensityCallbackPeriod[1000]
 
 Input["Click OK to exit"]
 
-(* Clean up *)
+(*Clean up*)
 ipcon@Disconnect[]
 ReleaseNETObject[dd]
 ReleaseNETObject[ipcon]

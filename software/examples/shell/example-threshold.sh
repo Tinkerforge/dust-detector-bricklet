@@ -1,15 +1,17 @@
 #!/bin/sh
-# connects to localhost:4223 by default, use --host and --port to change it
+# Connects to localhost:4223 by default, use --host and --port to change this
 
-# change to your UID
-uid=ABC
+uid=XYZ # Change to your UID
 
-# get threshold callbacks with a debounce time of 10 seconds (10000ms)
+# Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 tinkerforge call dust-detector-bricklet $uid set-debounce-period 10000
 
-# configure threshold for "greater than 10 µg/m³"
+# Handle incoming dust density reached callbacks (parameter has unit µg/m³)
+tinkerforge dispatch dust-detector-bricklet $uid dust-density-reached &
+
+# Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
 tinkerforge call dust-detector-bricklet $uid set-dust-density-callback-threshold greater 10 0
 
-# handle incoming dust density-reached callbacks (unit is µg/m³)
-tinkerforge dispatch dust-detector-bricklet $uid dust-density-reached\
- --execute "echo Dust Density: {dust-density} µg/m³"
+echo "Press key to exit"; read dummy
+
+kill -- -$$ # Stop callback dispatch in background

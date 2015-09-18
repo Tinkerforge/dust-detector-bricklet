@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -9,7 +10,7 @@ class Example
 	// Callback function for dust density callback (parameter has unit µg/m³)
 	static void DustDensityCB(BrickletDustDetector sender, int dustDensity)
 	{
-		System.Console.WriteLine("Dust Density: " + dustDensity + " µg/m³");
+		Console.WriteLine("Dust Density: " + dustDensity + " µg/m³");
 	}
 
 	static void Main()
@@ -20,16 +21,16 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
+		// Register dust density callback to function DustDensityCB
+		dd.DustDensity += DustDensityCB;
+
 		// Set period for dust density callback to 1s (1000ms)
 		// Note: The dust density callback is only called every second
 		//       if the dust density has changed since the last call!
 		dd.SetDustDensityCallbackPeriod(1000);
 
-		// Register dust density callback to function DustDensityCB
-		dd.DustDensity += DustDensityCB;
-
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

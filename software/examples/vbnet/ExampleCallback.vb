@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleCallback
@@ -5,9 +6,9 @@ Module ExampleCallback
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change to your UID
 
-    ' Callback function for dust density callback (parameter has unit µg/m³)
+    ' Callback subroutine for dust density callback (parameter has unit µg/m³)
     Sub DustDensityCB(ByVal sender As BrickletDustDetector, ByVal dustDensity As Integer)
-        System.Console.WriteLine("Dust Density: " + dustDensity.ToString() + " µg/m³")
+        Console.WriteLine("Dust Density: " + dustDensity.ToString() + " µg/m³")
     End Sub
 
     Sub Main()
@@ -17,16 +18,16 @@ Module ExampleCallback
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
+        ' Register dust density callback to subroutine DustDensityCB
+        AddHandler dd.DustDensity, AddressOf DustDensityCB
+
         ' Set period for dust density callback to 1s (1000ms)
         ' Note: The dust density callback is only called every second
         '       if the dust density has changed since the last call!
         dd.SetDustDensityCallbackPeriod(1000)
 
-        ' Register dust density callback to function DustDensityCB
-        AddHandler dd.DustDensity, AddressOf DustDensityCB
-
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

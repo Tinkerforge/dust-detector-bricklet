@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleSimple
@@ -14,10 +15,10 @@ Module ExampleSimple
 
         ' Get current dust density (unit is µg/m³)
         Dim dustDensity As Integer = dd.GetDustDensity()
-        System.Console.WriteLine("Dust Density: " + dustDensity.ToString() + " µg/m³")
+        Console.WriteLine("Dust Density: " + dustDensity.ToString() + " µg/m³")
 
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

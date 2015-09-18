@@ -8,9 +8,9 @@ UID = "XYZ" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_dust_detector import BrickletDustDetector
 
-# Callback function for dust density greater than 10 µg/m³ (parameter has unit µg/m³)
+# Callback function for dust density reached callback (parameter has unit µg/m³)
 def cb_dust_density_reached(dust_density):
-    print('Dust Density: ' + str(dust_density) + ' µg/m³')
+    print("Dust Density: " + str(dust_density) + " µg/m³")
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
@@ -22,11 +22,11 @@ if __name__ == "__main__":
     # Get threshold callbacks with a debounce time of 10 seconds (10000ms)
     dd.set_debounce_period(10000)
 
-    # Register threshold reached callback to function cb_dust_density_reached
+    # Register dust density reached callback to function cb_dust_density_reached
     dd.register_callback(dd.CALLBACK_DUST_DENSITY_REACHED, cb_dust_density_reached)
 
-    # Configure threshold for "greater than 10 µg/m³" (unit is µg/m³)
-    dd.set_dust_density_callback_threshold('>', 10, 0)
+    # Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
+    dd.set_dust_density_callback_threshold(">", 10, 0)
 
-    raw_input('Press key to exit\n') # Use input() in Python 3
+    raw_input("Press key to exit\n") # Use input() in Python 3
     ipcon.disconnect()
