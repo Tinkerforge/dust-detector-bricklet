@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:tinkerforge
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -10,7 +11,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -29,7 +29,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:tinkerforge
 LIBS:dust-detector-cache
 EELAYER 25 0
 EELAYER END
@@ -37,16 +36,16 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Dust Detector"
-Date "Mo 13 Apr 2015"
-Rev "1.0"
+Date "2016-03-04"
+Rev "1.1"
 Comp "Tinkerforge GmbH"
 Comment1 "Licensed under CERN OHL v.1.1"
-Comment2 "Copyright (©) 2015, B.Nordmeyer <bastian@tinkerforge.com>"
+Comment2 "Copyright (©) 2016, B.Nordmeyer <bastian@tinkerforge.com>"
 Comment3 ""
 Comment4 ""
 $EndDescr
 Text Notes 4250 7500 0    40   ~ 0
-Copyright Tinkerforge GmbH 2015.\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.1.\nYou may redistribute and modify this documentation under the terms of the\nCERN OHL v.1.1. (http://ohwr.org/cernohl). This documentation is distributed\nWITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING OF\nMERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A\nPARTICULAR PURPOSE. Please see the CERN OHL v.1.1 for applicable\nconditions\n
+Copyright Tinkerforge GmbH 2016.\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.1.\nYou may redistribute and modify this documentation under the terms of the\nCERN OHL v.1.1. (http://ohwr.org/cernohl). This documentation is distributed\nWITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING OF\nMERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A\nPARTICULAR PURPOSE. Please see the CERN OHL v.1.1 for applicable\nconditions\n
 $Comp
 L DRILL U5
 U 1 1 4CC88840
@@ -119,7 +118,7 @@ U 1 1 542BF3F4
 P 2150 5650
 F 0 "L1" V 2100 5650 40  0000 C CNN
 F 1 "1µH" V 2100 5500 40  0000 C CNN
-F 2 "kicad-libraries:0805" H 2150 5650 60  0001 C CNN
+F 2 "kicad-libraries:0805E" H 2150 5650 60  0001 C CNN
 F 3 "" H 2150 5650 60  0001 C CNN
 	1    2150 5650
 	0    -1   -1   0   
@@ -141,7 +140,7 @@ U 1 1 542BFA58
 P 1550 5750
 F 0 "C1" H 1600 5850 50  0000 L CNN
 F 1 "2.2µF" H 1550 5650 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 1550 5750 60  0001 C CNN
+F 2 "kicad-libraries:0603E" H 1550 5750 60  0001 C CNN
 F 3 "" H 1550 5750 60  0001 C CNN
 	1    1550 5750
 	1    0    0    -1  
@@ -163,7 +162,7 @@ U 1 1 542BFD21
 P 3850 5750
 F 0 "C3" H 3900 5850 50  0000 L CNN
 F 1 "4.7µF" H 3850 5650 50  0000 L CNN
-F 2 "kicad-libraries:0805" H 3850 5750 60  0001 C CNN
+F 2 "kicad-libraries:0805E" H 3850 5750 60  0001 C CNN
 F 3 "" H 3850 5750 60  0001 C CNN
 	1    3850 5750
 	1    0    0    -1  
@@ -232,7 +231,7 @@ U 1 1 542C0712
 P 2500 6000
 F 0 "R1" V 2580 6000 50  0000 C CNN
 F 1 "10k" V 2500 6000 50  0000 C CNN
-F 2 "kicad-libraries:0603" H 2500 6000 60  0001 C CNN
+F 2 "kicad-libraries:0603E" H 2500 6000 60  0001 C CNN
 F 3 "" H 2500 6000 60  0000 C CNN
 	1    2500 6000
 	1    0    0    -1  
@@ -267,7 +266,7 @@ U 1 1 542C1080
 P 2750 2100
 F 0 "C2" V 2600 2050 50  0000 L CNN
 F 1 "100nF" V 2900 2000 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 2750 2100 60  0001 C CNN
+F 2 "kicad-libraries:0603E" H 2750 2100 60  0001 C CNN
 F 3 "" H 2750 2100 60  0000 C CNN
 	1    2750 2100
 	0    1    1    0   
@@ -379,7 +378,7 @@ U 1 1 54F49E96
 P 4450 950
 F 0 "C4" V 4300 900 50  0000 L CNN
 F 1 "100nF" V 4600 850 50  0000 L CNN
-F 2 "kicad-libraries:0603" H 4450 950 60  0001 C CNN
+F 2 "kicad-libraries:0603E" H 4450 950 60  0001 C CNN
 F 3 "" H 4450 950 60  0000 C CNN
 	1    4450 950 
 	0    1    1    0   
@@ -402,7 +401,7 @@ U 1 1 552BCC44
 P 5200 3150
 F 0 "R4" V 5280 3150 50  0000 C CNN
 F 1 "12k" V 5200 3150 50  0000 C CNN
-F 2 "kicad-libraries:0603" H 5200 3150 60  0001 C CNN
+F 2 "kicad-libraries:0603E" H 5200 3150 60  0001 C CNN
 F 3 "" H 5200 3150 60  0000 C CNN
 	1    5200 3150
 	0    1    1    0   
@@ -413,7 +412,7 @@ U 1 1 552BCD9A
 P 5200 3350
 F 0 "R5" V 5280 3350 50  0000 C CNN
 F 1 "12k" V 5200 3350 50  0000 C CNN
-F 2 "kicad-libraries:0603" H 5200 3350 60  0001 C CNN
+F 2 "kicad-libraries:0603E" H 5200 3350 60  0001 C CNN
 F 3 "" H 5200 3350 60  0000 C CNN
 	1    5200 3350
 	0    1    1    0   
@@ -424,7 +423,7 @@ U 1 1 552BCEEB
 P 4350 2800
 F 0 "R2" V 4430 2800 50  0000 C CNN
 F 1 "10k" V 4350 2800 50  0000 C CNN
-F 2 "kicad-libraries:0603" H 4350 2800 60  0001 C CNN
+F 2 "kicad-libraries:0603E" H 4350 2800 60  0001 C CNN
 F 3 "" H 4350 2800 60  0000 C CNN
 	1    4350 2800
 	0    1    1    0   
@@ -435,7 +434,7 @@ U 1 1 552BD001
 P 4800 3650
 F 0 "R3" V 4880 3650 50  0000 C CNN
 F 1 "10k" V 4800 3650 50  0000 C CNN
-F 2 "kicad-libraries:0603" H 4800 3650 60  0001 C CNN
+F 2 "kicad-libraries:0603E" H 4800 3650 60  0001 C CNN
 F 3 "" H 4800 3650 60  0000 C CNN
 	1    4800 3650
 	-1   0    0    1   
@@ -490,7 +489,7 @@ U 1 1 552BDC24
 P 8550 3250
 F 0 "P2" V 8500 3250 60  0000 C CNN
 F 1 "CONN_6" V 8600 3250 60  0000 C CNN
-F 2 "kicad-libraries:pin_array_6x1" H 8550 3250 60  0001 C CNN
+F 2 "kicad-libraries:B6B-ZR" H 8550 3250 60  0001 C CNN
 F 3 "" H 8550 3250 60  0000 C CNN
 	1    8550 3250
 	1    0    0    -1  
@@ -512,7 +511,7 @@ U 1 1 552BE1AF
 P 6800 2400
 F 0 "R6" V 6880 2400 50  0000 C CNN
 F 1 "150" V 6800 2400 50  0000 C CNN
-F 2 "kicad-libraries:0805" H 6800 2400 60  0001 C CNN
+F 2 "kicad-libraries:0805E" H 6800 2400 60  0001 C CNN
 F 3 "" H 6800 2400 60  0000 C CNN
 	1    6800 2400
 	-1   0    0    1   
@@ -561,7 +560,6 @@ F 3 "" H 6800 3700 60  0001 C CNN
 	1    6800 3700
 	1    0    0    -1  
 $EndComp
-Connection ~ 9400 -1150
 Wire Wire Line
 	1550 5550 2650 5550
 Wire Wire Line
@@ -716,7 +714,7 @@ U 1 1 552BFCCC
 P 5900 2400
 F 0 "C6" V 5750 2350 50  0000 L CNN
 F 1 "4.7µF" V 6050 2300 50  0000 L CNN
-F 2 "kicad-libraries:0805" H 5900 2400 60  0001 C CNN
+F 2 "kicad-libraries:0805E" H 5900 2400 60  0001 C CNN
 F 3 "" H 5900 2400 60  0000 C CNN
 	1    5900 2400
 	-1   0    0    1   
@@ -741,7 +739,7 @@ U 1 1 552C0226
 P 6200 1850
 F 0 "L2" V 6280 1850 50  0000 C CNN
 F 1 "INDUCT" V 6100 1850 50  0000 C CNN
-F 2 "kicad-libraries:0603" H 6200 1850 60  0001 C CNN
+F 2 "kicad-libraries:0603E" H 6200 1850 60  0001 C CNN
 F 3 "" H 6200 1850 60  0000 C CNN
 	1    6200 1850
 	-1   0    0    1   
@@ -752,7 +750,7 @@ U 1 1 552C07A3
 P 5900 1850
 F 0 "C5" V 5750 1800 50  0000 L CNN
 F 1 "4.7µF" V 6050 1750 50  0000 L CNN
-F 2 "kicad-libraries:0805" H 5900 1850 60  0001 C CNN
+F 2 "kicad-libraries:0805E" H 5900 1850 60  0001 C CNN
 F 3 "" H 5900 1850 60  0000 C CNN
 	1    5900 1850
 	-1   0    0    1   
@@ -783,53 +781,13 @@ U 1 1 552C0B19
 P 6550 2900
 F 0 "C8" V 6500 3000 50  0000 L CNN
 F 1 "DNP" V 6500 2650 50  0000 L CNN
-F 2 "kicad-libraries:0805" H 6550 2900 60  0001 C CNN
+F 2 "kicad-libraries:0805E" H 6550 2900 60  0001 C CNN
 F 3 "" H 6550 2900 60  0000 C CNN
 	1    6550 2900
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	7200 3000 8200 3000
-$Comp
-L CONN_3 K2
-U 1 1 552C187B
-P 8000 4150
-F 0 "K2" V 7950 4150 50  0000 C CNN
-F 1 "CONN_3" V 8050 4150 40  0000 C CNN
-F 2 "kicad-libraries:9175-003" H 8000 4150 60  0001 C CNN
-F 3 "" H 8000 4150 60  0000 C CNN
-	1    8000 4150
-	0    1    1    0   
-$EndComp
-$Comp
-L CONN_3 K1
-U 1 1 552C1AA9
-P 7700 4150
-F 0 "K1" V 7650 4150 50  0000 C CNN
-F 1 "CONN_3" V 7750 4150 40  0000 C CNN
-F 2 "kicad-libraries:9175-003" H 7700 4150 60  0001 C CNN
-F 3 "" H 7700 4150 60  0000 C CNN
-	1    7700 4150
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	8100 3800 8100 3000
-Connection ~ 8100 3000
-Wire Wire Line
-	8000 3800 8000 3100
-Connection ~ 8000 3100
-Wire Wire Line
-	7900 3800 7900 3200
-Connection ~ 7900 3200
-Wire Wire Line
-	7800 3800 7800 3300
-Connection ~ 7800 3300
-Wire Wire Line
-	7700 3800 7700 3400
-Connection ~ 7700 3400
-Wire Wire Line
-	7600 3800 7600 3500
-Connection ~ 7600 3500
 NoConn ~ 1700 3250
 Text GLabel 1950 3150 2    60   Output ~ 0
 EN
