@@ -8,7 +8,7 @@ use Tinkerforge\BrickletDustDetector;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'XYZ'; // Change to your UID
+const UID = 'XYZ'; // Change XYZ to the UID of your Dust Detector Bricklet
 
 // Callback function for dust density reached callback (parameter has unit µg/m³)
 function cb_dustDensityReached($dust_density)
@@ -26,7 +26,8 @@ $ipcon->connect(HOST, PORT); // Connect to brickd
 $dd->setDebouncePeriod(10000);
 
 // Register dust density reached callback to function cb_dustDensityReached
-$dd->registerCallback(BrickletDustDetector::CALLBACK_DUST_DENSITY_REACHED, 'cb_dustDensityReached');
+$dd->registerCallback(BrickletDustDetector::CALLBACK_DUST_DENSITY_REACHED,
+                      'cb_dustDensityReached');
 
 // Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
 $dd->setDustDensityCallbackThreshold('>', 10, 0);

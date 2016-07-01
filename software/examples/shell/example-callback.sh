@@ -1,7 +1,7 @@
 #!/bin/sh
 # Connects to localhost:4223 by default, use --host and --port to change this
 
-uid=XYZ # Change to your UID
+uid=XYZ # Change XYZ to the UID of your Dust Detector Bricklet
 
 # Handle incoming dust density callbacks (parameter has unit µg/m³)
 tinkerforge dispatch dust-detector-bricklet $uid dust-density &

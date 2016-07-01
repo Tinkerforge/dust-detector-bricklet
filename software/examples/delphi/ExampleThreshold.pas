@@ -12,20 +12,22 @@ type
     ipcon: TIPConnection;
     dd: TBrickletDustDetector;
   public
-    procedure DustDensityReachedCB(sender: TBrickletDustDetector; const dustDensity: word);
+    procedure DustDensityReachedCB(sender: TBrickletDustDetector;
+                                   const dustDensity: word);
     procedure Execute;
   end;
 
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'XYZ'; { Change to your UID }
+  UID = 'XYZ'; { Change XYZ to the UID of your Dust Detector Bricklet }
 
 var
   e: TExample;
 
 { Callback procedure for dust density reached callback (parameter has unit µg/m³) }
-procedure TExample.DustDensityReachedCB(sender: TBrickletDustDetector; const dustDensity: word);
+procedure TExample.DustDensityReachedCB(sender: TBrickletDustDetector;
+                                        const dustDensity: word);
 begin
   WriteLn(Format('Dust Density: %d µg/m³', [dustDensity]));
 end;

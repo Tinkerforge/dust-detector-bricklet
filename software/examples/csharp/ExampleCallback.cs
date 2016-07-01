@@ -5,7 +5,7 @@ class Example
 {
 	private static string HOST = "localhost";
 	private static int PORT = 4223;
-	private static string UID = "XYZ"; // Change to your UID
+	private static string UID = "XYZ"; // Change XYZ to the UID of your Dust Detector Bricklet
 
 	// Callback function for dust density callback (parameter has unit µg/m³)
 	static void DustDensityCB(BrickletDustDetector sender, int dustDensity)

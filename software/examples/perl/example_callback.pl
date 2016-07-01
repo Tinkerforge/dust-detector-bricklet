@@ -5,7 +5,7 @@ use Tinkerforge::BrickletDustDetector;
 
 use constant HOST => 'localhost';
 use constant PORT => 4223;
-use constant UID => 'XYZ'; # Change to your UID
+use constant UID => 'XYZ'; # Change XYZ to the UID of your Dust Detector Bricklet
 
 # Callback subroutine for dust density callback (parameter has unit µg/m³)
 sub cb_dust_density

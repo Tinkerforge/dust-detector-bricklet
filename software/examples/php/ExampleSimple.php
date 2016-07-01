@@ -8,7 +8,7 @@ use Tinkerforge\BrickletDustDetector;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'XYZ'; // Change to your UID
+const UID = 'XYZ'; // Change XYZ to the UID of your Dust Detector Bricklet
 
 $ipcon = new IPConnection(); // Create IP connection
 $dd = new BrickletDustDetector(UID, $ipcon); // Create device object

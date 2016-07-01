@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "XYZ" // Change to your UID
+#define UID "XYZ" // Change XYZ to the UID of your Dust Detector Bricklet
 
 // Callback function for dust density callback (parameter has unit µg/m³)
 void cb_dust_density(uint16_t dust_density, void *user_data) {
