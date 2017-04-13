@@ -22,7 +22,7 @@ class Example
 		// Don't use device before ipcon is connected
 
 		// Register dust density callback to function DustDensityCB
-		dd.DustDensity += DustDensityCB;
+		dd.DustDensityCallback += DustDensityCB;
 
 		// Set period for dust density callback to 1s (1000ms)
 		// Note: The dust density callback is only called every second

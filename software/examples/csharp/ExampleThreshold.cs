@@ -25,7 +25,7 @@ class Example
 		dd.SetDebouncePeriod(10000);
 
 		// Register dust density reached callback to function DustDensityReachedCB
-		dd.DustDensityReached += DustDensityReachedCB;
+		dd.DustDensityReachedCallback += DustDensityReachedCB;
 
 		// Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
 		dd.SetDustDensityCallbackThreshold('>', 10, 0);
