@@ -10,7 +10,7 @@ tinkerforge call dust-detector-bricklet $uid set-debounce-period 10000
 tinkerforge dispatch dust-detector-bricklet $uid dust-density-reached &
 
 # Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
-tinkerforge call dust-detector-bricklet $uid set-dust-density-callback-threshold greater 10 0
+tinkerforge call dust-detector-bricklet $uid set-dust-density-callback-threshold threshold-option-greater 10 0
 
 echo "Press key to exit"; read dummy
 
