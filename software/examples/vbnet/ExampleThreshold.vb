@@ -23,7 +23,7 @@ Module ExampleThreshold
         dd.SetDebouncePeriod(10000)
 
         ' Register dust density reached callback to subroutine DustDensityReachedCB
-        AddHandler dd.DustDensityReached, AddressOf DustDensityReachedCB
+        AddHandler dd.DustDensityReachedCallback, AddressOf DustDensityReachedCB
 
         ' Configure threshold for dust_density "greater than 10 µg/m³" (unit is µg/m³)
         dd.SetDustDensityCallbackThreshold(">"C, 10, 0)

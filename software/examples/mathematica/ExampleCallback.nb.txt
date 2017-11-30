@@ -13,7 +13,7 @@ ipcon@Connect[host,port]
 (*Callback function for dust density callback (parameter has unit µg/m³)*)
 DustDensityCB[sender_,dustDensity_]:=
  Print["Dust Density: "<>ToString[N[Quantity[dustDensity,"µg/m³"]]]]
-AddEventHandler[dd@DustDensity,DustDensityCB]
+AddEventHandler[dd@DustDensityCallback,DustDensityCB]
 
 (*Set period for dust density callback to 1s (1000ms)*)
 (*Note: The dust density callback is only called every second*)

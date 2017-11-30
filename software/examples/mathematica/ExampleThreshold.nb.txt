@@ -16,7 +16,7 @@ dd@SetDebouncePeriod[10000]
 (*Callback function for dust density reached callback (parameter has unit µg/m³)*)
 DustDensityReachedCB[sender_,dustDensity_]:=
  Print["Dust Density: "<>ToString[N[Quantity[dustDensity,"µg/m³"]]]]
-AddEventHandler[dd@DustDensityReached,DustDensityReachedCB]
+AddEventHandler[dd@DustDensityReachedCallback,DustDensityReachedCB]
 
 (*Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)*)
 option=Tinkerforge`BrickletDustDetector`THRESHOLDUOPTIONUGREATER

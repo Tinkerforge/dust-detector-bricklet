@@ -20,7 +20,7 @@ Module ExampleCallback
         ' Don't use device before ipcon is connected
 
         ' Register dust density callback to subroutine DustDensityCB
-        AddHandler dd.DustDensity, AddressOf DustDensityCB
+        AddHandler dd.DustDensityCallback, AddressOf DustDensityCB
 
         ' Set period for dust density callback to 1s (1000ms)
         ' Note: The dust density callback is only called every second
