@@ -1,137 +1,44 @@
-(* Content-type: application/vnd.wolfram.mathematica *)
-
-(*** Wolfram Notebook File ***)
-(* http://www.wolfram.com/nb *)
-
-(* CreatedBy='Mathematica 9.0' *)
-
-(*CacheID: 234*)
-(* Internal cache information:
-NotebookFileLineBreakTest
-NotebookFileLineBreakTest
-NotebookDataPosition[       157,          7]
-NotebookDataLength[      4452,        128]
-NotebookOptionsPosition[      4178,        114]
-NotebookOutlinePosition[      4517,        129]
-CellTagsIndexPosition[      4474,        126]
-WindowFrame->Normal*)
-
-(* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[{
- RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}], "\n", 
- RowBox[{"LoadNETAssembly", "[", 
-  RowBox[{"\"\<Tinkerforge\>\"", ",", 
-   RowBox[{
-    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../../..\>\""}]}], 
-  "]"}]}], "Input",
- CellChangeTimes->{{3.643617976572146*^9, 3.643617981414551*^9}}],
-
-Cell[BoxData[{
- RowBox[{"host", "=", "\"\<localhost\>\""}], "\n", 
- RowBox[{"port", "=", "4223"}], "\n", 
- RowBox[{
-  RowBox[{"uid", "=", "\"\<XYZ\>\""}], 
-  RowBox[{"(*", 
-   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], "*)"}], "\n", 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "Create", " ", "IPConnection", " ", "and", " ", "device", " ", "object"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{"ipcon", "=", 
-  RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
- RowBox[{"dd", "=", 
-  RowBox[{"NETNew", "[", 
-   RowBox[{
-   "\"\<Tinkerforge.BrickletDustDetector\>\"", ",", "uid", ",", "ipcon"}], 
-   "]"}]}], "\n", 
- RowBox[{
-  RowBox[{"ipcon", "@", 
-   RowBox[{"Connect", "[", 
-    RowBox[{"host", ",", "port"}], "]"}]}], "\n", "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "Get", " ", "threshold", " ", "callbacks", " ", "with", " ", "a", " ", 
-    "debounce", " ", "time", " ", "of", " ", "10", " ", "seconds", " ", 
-    RowBox[{"(", 
-     RowBox[{"10000", "ms"}], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"dd", "@", 
-   RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}], "\n", 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "Callback", " ", "function", " ", "for", " ", "dust", " ", "density", " ", 
-    "reached", " ", "callback", " ", 
-    RowBox[{"(", 
-     RowBox[{"parameter", " ", "has", " ", "unit", " ", 
-      RowBox[{"\[Micro]g", "/", "m\.b3"}]}], ")"}]}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"DustDensityReachedCB", "[", 
-   RowBox[{"sender_", ",", "dustDensity_"}], "]"}], ":=", 
-  "\[IndentingNewLine]", 
-  RowBox[{"Print", "[", 
-   RowBox[{"\"\<Dust Density: \>\"", "<>", 
-    RowBox[{"ToString", "[", 
-     RowBox[{"N", "[", 
-      RowBox[{"Quantity", "[", 
-       RowBox[{"dustDensity", ",", "\"\<\[Micro]g/m\.b3\>\""}], "]"}], "]"}], 
-     "]"}]}], "]"}]}], "\n", 
- RowBox[{
-  RowBox[{"AddEventHandler", "[", 
-   RowBox[{
-    RowBox[{"dd", "@", "DustDensityReached"}], ",", "DustDensityReachedCB"}], 
-   "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "Configure", " ", "threshold", " ", "for", " ", "dust", " ", "density", 
-    " ", "\"\<greater than 10 \[Micro]g/m\.b3\>\"", " ", 
-    RowBox[{"(", 
-     RowBox[{"unit", " ", "is", " ", 
-      RowBox[{"\[Micro]g", "/", "m\.b3"}]}], ")"}]}], "*)"}]}], "\n", 
- RowBox[{"option", "=", 
-  "Tinkerforge`BrickletDustDetector`THRESHOLDUOPTIONUGREATER"}], "\n", 
- RowBox[{
-  RowBox[{"dd", "@", 
-   RowBox[{"SetDustDensityCallbackThreshold", "[", 
-    RowBox[{"option", ",", "10", ",", "0"}], "]"}]}], 
-  "\n"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{"Clean", " ", "up"}], "*)"}]}], "\n", 
- RowBox[{"ipcon", "@", 
-  RowBox[{"Disconnect", "[", "]"}]}], "\n", 
- RowBox[{"ReleaseNETObject", "[", "dd", "]"}], "\n", 
- RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
- CellChangeTimes->{{3.64361798371621*^9, 3.6436180127077503`*^9}, {
-  3.643618046077292*^9, 3.643618048509891*^9}, {3.6436180860738688`*^9, 
-  3.643618088767178*^9}, {3.6436181240648518`*^9, 3.643618128107092*^9}, {
-  3.651565113088482*^9, 3.651565114941519*^9}}]
-},
-WindowSize->{1398, 901},
-WindowMargins->{{Automatic, 158}, {61, Automatic}},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
-StyleDefinitions->"Default.nb"
-]
-(* End of Notebook Content *)
-
-(* Internal cache information *)
-(*CellTagsOutline
-CellTagsIndex->{}
-*)
-(*CellTagsIndex
-CellTagsIndex->{}
-*)
-(*NotebookFileOutline
-Notebook[{
-Cell[557, 20, 318, 7, 55, "Input"],
-Cell[878, 29, 3296, 83, 605, "Input"]
-}
-]
-*)
-
-(* End of internal cache information *)
+ Cell[
+  BoxData[{
+   RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}],
+   RowBox[{"LoadNETAssembly", "[", RowBox[{"\"\<Tinkerforge\>\"", ",", RowBox[{RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../../..\>\""}]}], "]"}]
+  }], "Input"
+ ],
+ Cell[
+  BoxData[{
+   RowBox[{"host", "=", "\"\<localhost\>\""}],
+   RowBox[{"port", "=", "4223"}],
+   RowBox[{"uid", "=", "\"\<XYZ\>\"", RowBox[{"(*", "Change XYZ to the UID of your Dust Detector Bricklet", "*)"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Create IPConnection and device object", "*)"}],
+   RowBox[{"ipcon", "=", RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}],
+   RowBox[{"dd", "=", RowBox[{"NETNew", "[", RowBox[{"\"\<Tinkerforge.BrickletDustDetector\>\"", ",", "uid", ",", "ipcon"}], "]"}]}],
+   RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Get threshold callbacks with a debounce time of 10 seconds (10000ms)", "*)"}],
+   RowBox[{"dd", "@", RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Callback function for dust density reached callback (parameter has unit \.b5g/m\.b3)", "*)"}],
+   RowBox[{RowBox[{"DustDensityReachedCB", "[", RowBox[{"sender_", ",", "dustDensity_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Dust Density: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"dustDensity", ",", "\"\<\.b5g/m\.b3\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
+   RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"dd", "@", "DustDensityReachedCallback"}], ",", "DustDensityReachedCB"}], "]"}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Configure threshold for dust density ", "\"\<greater than 10 \.b5g/m\.b3\>\"", " (unit is \.b5g/m\.b3)", "*)"}],
+   RowBox[{"option", "=", "Tinkerforge`BrickletDustDetector`THRESHOLDUOPTIONUGREATER"}],
+   RowBox[{"dd", "@", RowBox[{"SetDustDensityCallbackThreshold", "[", RowBox[{"option", ",", "10", ",", "0"}], "]"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Clean up", "*)"}],
+   RowBox[{"ipcon", "@", RowBox[{"Disconnect", "[", "]"}]}],
+   RowBox[{"ReleaseNETObject", "[", "dd", "]"}],
+   RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]
+  }], "Input"
+ ]
+}]
