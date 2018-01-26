@@ -11,7 +11,7 @@
 void cb_dust_density(uint16_t dust_density, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Dust Density: %d µg/m³\n", dust_density);
+	printf("Dust Density: %u µg/m³\n", dust_density);
 }
 
 int main(void) {

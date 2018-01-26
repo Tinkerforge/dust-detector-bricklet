@@ -30,7 +30,7 @@ int main(void) {
 		return 1;
 	}
 
-	printf("Dust Density: %d µg/m³\n", dust_density);
+	printf("Dust Density: %u µg/m³\n", dust_density);
 
 	printf("Press key to exit\n");
 	getchar();
