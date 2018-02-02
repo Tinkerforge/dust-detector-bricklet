@@ -15,7 +15,7 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current dust density (unit is µg/m³)
+		// Get current dust density
 		int dustDensity = dd.GetDustDensity();
 		Console.WriteLine("Dust Density: " + dustDensity + " µg/m³");
 

@@ -16,7 +16,7 @@ dd = BrickletDustDetector.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current dust density (unit is µg/m³)
+# Get current dust density
 dust_density = dd.get_dust_density
 puts "Dust Density: #{dust_density} µg/m³"
 

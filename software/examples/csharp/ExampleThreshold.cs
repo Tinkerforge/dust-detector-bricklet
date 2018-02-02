@@ -7,7 +7,7 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change XYZ to the UID of your Dust Detector Bricklet
 
-	// Callback function for dust density reached callback (parameter has unit µg/m³)
+	// Callback function for dust density reached callback
 	static void DustDensityReachedCB(BrickletDustDetector sender, int dustDensity)
 	{
 		Console.WriteLine("Dust Density: " + dustDensity + " µg/m³");
@@ -27,7 +27,7 @@ class Example
 		// Register dust density reached callback to function DustDensityReachedCB
 		dd.DustDensityReachedCallback += DustDensityReachedCB;
 
-		// Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
+		// Configure threshold for dust density "greater than 10 µg/m³"
 		dd.SetDustDensityCallbackThreshold('>', 10, 0);
 
 		Console.WriteLine("Press enter to exit");

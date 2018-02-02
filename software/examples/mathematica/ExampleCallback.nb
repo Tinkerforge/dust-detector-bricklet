@@ -18,7 +18,7 @@ Notebook[{
    RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for dust density callback (parameter has unit \.b5g/m\.b3)", "*)"}],
+   RowBox[{"(*", "Callback function for dust density callback", "*)"}],
    RowBox[{RowBox[{"DustDensityCB", "[", RowBox[{"sender_", ",", "dustDensity_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Dust Density: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"dustDensity", ",", "\"\<\.b5g/m\.b3\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"dd", "@", "DustDensityCallback"}], ",", "DustDensityCB"}], "]"}],
    RowBox[{"

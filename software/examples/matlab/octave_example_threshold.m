@@ -17,14 +17,14 @@ function octave_example_threshold()
     % Register dust density reached callback to function cb_dust_density_reached
     dd.addDustDensityReachedCallback(@cb_dust_density_reached);
 
-    % Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
+    % Configure threshold for dust density "greater than 10 µg/m³"
     dd.setDustDensityCallbackThreshold(">", 10, 0);
 
     input("Press key to exit\n", "s");
     ipcon.disconnect();
 end
 
-% Callback function for dust density reached callback (parameter has unit µg/m³)
+% Callback function for dust density reached callback
 function cb_dust_density_reached(e)
     fprintf("Dust Density: %d µg/m³\n", e.dustDensity);
 end

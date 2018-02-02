@@ -50,7 +50,7 @@
 
                 // Register dust density callback
                 dd.on(Tinkerforge.BrickletDustDetector.CALLBACK_DUST_DENSITY,
-                    // Callback function for dust density callback (parameter has unit µg/m³)
+                    // Callback function for dust density callback
                     function (dustDensity) {
                         textArea.value += 'Dust Density: ' + dustDensity + ' µg/m³\n';
                         textArea.scrollTop = textArea.scrollHeight;

@@ -25,7 +25,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for dust density reached callback (parameter has unit µg/m³) }
+{ Callback procedure for dust density reached callback }
 procedure TExample.DustDensityReachedCB(sender: TBrickletDustDetector;
                                         const dustDensity: word);
 begin
@@ -50,7 +50,7 @@ begin
   { Register dust density reached callback to procedure DustDensityReachedCB }
   dd.OnDustDensityReached := {$ifdef FPC}@{$endif}DustDensityReachedCB;
 
-  { Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³) }
+  { Configure threshold for dust density "greater than 10 µg/m³" }
   dd.SetDustDensityCallbackThreshold('>', 10, 0);
 
   WriteLn('Press key to exit');

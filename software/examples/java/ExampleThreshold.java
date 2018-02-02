@@ -20,14 +20,14 @@ public class ExampleThreshold {
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		dd.setDebouncePeriod(10000);
 
-		// Add dust density reached listener (parameter has unit µg/m³)
+		// Add dust density reached listener
 		dd.addDustDensityReachedListener(new BrickletDustDetector.DustDensityReachedListener() {
 			public void dustDensityReached(int dustDensity) {
 				System.out.println("Dust Density: " + dustDensity + " µg/m³");
 			}
 		});
 
-		// Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
+		// Configure threshold for dust density "greater than 10 µg/m³"
 		dd.setDustDensityCallbackThreshold('>', 10, 0);
 
 		System.out.println("Press key to exit"); System.in.read();

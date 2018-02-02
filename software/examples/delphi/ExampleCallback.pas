@@ -24,7 +24,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for dust density callback (parameter has unit µg/m³) }
+{ Callback procedure for dust density callback }
 procedure TExample.DustDensityCB(sender: TBrickletDustDetector; const dustDensity: word);
 begin
   WriteLn(Format('Dust Density: %d µg/m³', [dustDensity]));

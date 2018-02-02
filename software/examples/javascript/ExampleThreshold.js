@@ -19,14 +19,14 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
         // Get threshold callbacks with a debounce time of 10 seconds (10000ms)
         dd.setDebouncePeriod(10000);
 
-        // Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
+        // Configure threshold for dust density "greater than 10 µg/m³"
         dd.setDustDensityCallbackThreshold('>', 10, 0);
     }
 );
 
 // Register dust density reached callback
 dd.on(Tinkerforge.BrickletDustDetector.CALLBACK_DUST_DENSITY_REACHED,
-    // Callback function for dust density reached callback (parameter has unit µg/m³)
+    // Callback function for dust density reached callback
     function (dustDensity) {
         console.log('Dust Density: ' + dustDensity + ' µg/m³');
     }

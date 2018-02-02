@@ -16,7 +16,7 @@ $dd = new BrickletDustDetector(UID, $ipcon); // Create device object
 $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
-// Get current dust density (unit is µg/m³)
+// Get current dust density
 $dust_density = $dd->getDustDensity();
 echo "Dust Density: $dust_density µg/m³\n";
 

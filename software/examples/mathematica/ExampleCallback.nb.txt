@@ -10,7 +10,7 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 dd=NETNew["Tinkerforge.BrickletDustDetector",uid,ipcon]
 ipcon@Connect[host,port]
 
-(*Callback function for dust density callback (parameter has unit µg/m³)*)
+(*Callback function for dust density callback*)
 DustDensityCB[sender_,dustDensity_]:=
  Print["Dust Density: "<>ToString[N[Quantity[dustDensity,"µg/m³"]]]]
 AddEventHandler[dd@DustDensityCallback,DustDensityCB]

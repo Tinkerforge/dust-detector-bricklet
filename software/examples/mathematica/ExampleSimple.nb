@@ -18,7 +18,7 @@ Notebook[{
    RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Get current dust density (unit is \.b5g/m\.b3)", "*)"}],
+   RowBox[{"(*", "Get current dust density", "*)"}],
    RowBox[{"Print", "[", RowBox[{"\"\<Dust Density: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{RowBox[{"dd", "@", RowBox[{"GetDustDensity", "[", "]"}]}], ",", "\"\<\.b5g/m\.b3\>\""}], "]"}], "]"}], "]"}]}], "]"}],
    RowBox[{"
 "}],

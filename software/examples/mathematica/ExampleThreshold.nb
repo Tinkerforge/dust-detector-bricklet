@@ -22,12 +22,12 @@ Notebook[{
    RowBox[{"dd", "@", RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for dust density reached callback (parameter has unit \.b5g/m\.b3)", "*)"}],
+   RowBox[{"(*", "Callback function for dust density reached callback", "*)"}],
    RowBox[{RowBox[{"DustDensityReachedCB", "[", RowBox[{"sender_", ",", "dustDensity_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Dust Density: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"dustDensity", ",", "\"\<\.b5g/m\.b3\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"dd", "@", "DustDensityReachedCallback"}], ",", "DustDensityReachedCB"}], "]"}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Configure threshold for dust density ", "\"\<greater than 10 \.b5g/m\.b3\>\"", " (unit is \.b5g/m\.b3)", "*)"}],
+   RowBox[{"(*", "Configure threshold for dust density ", "\"\<greater than 10 \.b5g/m\.b3\>\"", "", "*)"}],
    RowBox[{"option", "=", "Tinkerforge`BrickletDustDetector`THRESHOLDUOPTIONUGREATER"}],
    RowBox[{"dd", "@", RowBox[{"SetDustDensityCallbackThreshold", "[", RowBox[{"option", ",", "10", ",", "0"}], "]"}]}],
    RowBox[{"

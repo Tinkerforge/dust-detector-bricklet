@@ -17,7 +17,7 @@ public class ExampleSimple {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current dust density (unit is µg/m³)
+		// Get current dust density
 		int dustDensity = dd.getDustDensity(); // Can throw com.tinkerforge.TimeoutException
 		System.out.println("Dust Density: " + dustDensity + " µg/m³");
 

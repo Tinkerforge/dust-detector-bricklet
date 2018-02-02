@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    # Get current dust density (unit is µg/m³)
+    # Get current dust density
     dust_density = dd.get_dust_density()
     print("Dust Density: " + str(dust_density) + " µg/m³")
 

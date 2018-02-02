@@ -3,7 +3,7 @@
 
 uid=XYZ # Change XYZ to the UID of your Dust Detector Bricklet
 
-# Handle incoming dust density callbacks (parameter has unit µg/m³)
+# Handle incoming dust density callbacks
 tinkerforge dispatch dust-detector-bricklet $uid dust-density &
 
 # Set period for dust density callback to 1s (1000ms)

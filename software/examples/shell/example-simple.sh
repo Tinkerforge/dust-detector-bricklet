@@ -3,5 +3,5 @@
 
 uid=XYZ # Change XYZ to the UID of your Dust Detector Bricklet
 
-# Get current dust density (unit is µg/m³)
+# Get current dust density
 tinkerforge call dust-detector-bricklet $uid get-dust-density

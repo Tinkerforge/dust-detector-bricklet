@@ -6,7 +6,7 @@ Module ExampleCallback
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Dust Detector Bricklet
 
-    ' Callback subroutine for dust density callback (parameter has unit µg/m³)
+    ' Callback subroutine for dust density callback
     Sub DustDensityCB(ByVal sender As BrickletDustDetector, _
                       ByVal dustDensity As Integer)
         Console.WriteLine("Dust Density: " + dustDensity.ToString() + " µg/m³")

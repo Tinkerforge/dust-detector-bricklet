@@ -16,7 +16,7 @@ ipcon.connect(HOST, PORT,
 
 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function (connectReason) {
-        // Get current dust density (unit is µg/m³)
+        // Get current dust density
         dd.getDustDensity(
             function (dustDensity) {
                 console.log('Dust Density: ' + dustDensity + ' µg/m³');

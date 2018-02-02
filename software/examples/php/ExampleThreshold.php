@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Dust Detector Bricklet
 
-// Callback function for dust density reached callback (parameter has unit µg/m³)
+// Callback function for dust density reached callback
 function cb_dustDensityReached($dust_density)
 {
     echo "Dust Density: $dust_density µg/m³\n";
@@ -29,7 +29,7 @@ $dd->setDebouncePeriod(10000);
 $dd->registerCallback(BrickletDustDetector::CALLBACK_DUST_DENSITY_REACHED,
                       'cb_dustDensityReached');
 
-// Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
+// Configure threshold for dust density "greater than 10 µg/m³"
 $dd->setDustDensityCallbackThreshold('>', 10, 0);
 
 echo "Press ctrl+c to exit\n";

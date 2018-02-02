@@ -13,7 +13,7 @@ my $dd = Tinkerforge::BrickletDustDetector->new(&UID, $ipcon); # Create device o
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current dust density (unit is µg/m³)
+# Get current dust density
 my $dust_density = $dd->get_dust_density();
 print "Dust Density: $dust_density µg/m³\n";
 

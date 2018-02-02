@@ -7,7 +7,7 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change XYZ to the UID of your Dust Detector Bricklet
 
-	// Callback function for dust density callback (parameter has unit µg/m³)
+	// Callback function for dust density callback
 	static void DustDensityCB(BrickletDustDetector sender, int dustDensity)
 	{
 		Console.WriteLine("Dust Density: " + dustDensity + " µg/m³");

@@ -23,7 +23,7 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Get current dust density (unit is µg/m³)
+	// Get current dust density
 	uint16_t dust_density;
 	if(dust_detector_get_dust_density(&dd, &dust_density) < 0) {
 		fprintf(stderr, "Could not get dust density, probably timeout\n");

@@ -24,7 +24,7 @@ function matlab_example_callback()
     ipcon.disconnect();
 end
 
-% Callback function for dust density callback (parameter has unit µg/m³)
+% Callback function for dust density callback
 function cb_dust_density(e)
     fprintf('Dust Density: %i µg/m³\n', e.dustDensity);
 end

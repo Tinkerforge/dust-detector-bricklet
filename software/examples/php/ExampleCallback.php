@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Dust Detector Bricklet
 
-// Callback function for dust density callback (parameter has unit µg/m³)
+// Callback function for dust density callback
 function cb_dustDensity($dust_density)
 {
     echo "Dust Density: $dust_density µg/m³\n";

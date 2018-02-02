@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change XYZ to the UID of your Dust Detector Bricklet
 
-// Callback function for dust density reached callback (parameter has unit µg/m³)
+// Callback function for dust density reached callback
 void cb_dust_density_reached(uint16_t dust_density, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
@@ -39,7 +39,7 @@ int main(void) {
 	                                (void *)cb_dust_density_reached,
 	                                NULL);
 
-	// Configure threshold for dust density "greater than 10 µg/m³" (unit is µg/m³)
+	// Configure threshold for dust density "greater than 10 µg/m³"
 	dust_detector_set_dust_density_callback_threshold(&dd, '>', 10, 0);
 
 	printf("Press key to exit\n");

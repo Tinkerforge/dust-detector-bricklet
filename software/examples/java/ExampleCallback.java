@@ -17,7 +17,7 @@ public class ExampleCallback {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Add dust density listener (parameter has unit µg/m³)
+		// Add dust density listener
 		dd.addDustDensityListener(new BrickletDustDetector.DustDensityListener() {
 			public void dustDensity(int dustDensity) {
 				System.out.println("Dust Density: " + dustDensity + " µg/m³");

@@ -11,7 +11,7 @@ function octave_example_simple()
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Get current dust density (unit is µg/m³)
+    % Get current dust density
     dustDensity = dd.getDustDensity();
     fprintf("Dust Density: %d µg/m³\n", dustDensity);
 

@@ -8,7 +8,7 @@ UID = "XYZ" # Change XYZ to the UID of your Dust Detector Bricklet
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_dust_detector import BrickletDustDetector
 
-# Callback function for dust density callback (parameter has unit µg/m³)
+# Callback function for dust density callback
 def cb_dust_density(dust_density):
     print("Dust Density: " + str(dust_density) + " µg/m³")
 

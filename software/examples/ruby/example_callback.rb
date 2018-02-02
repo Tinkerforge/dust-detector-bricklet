@@ -16,7 +16,7 @@ dd = BrickletDustDetector.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Register dust density callback (parameter has unit µg/m³)
+# Register dust density callback
 dd.register_callback(BrickletDustDetector::CALLBACK_DUST_DENSITY) do |dust_density|
   puts "Dust Density: #{dust_density} µg/m³"
 end

@@ -6,7 +6,7 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Dust Detector Bricklet
 
-    ' Callback subroutine for dust density reached callback (parameter has unit µg/m³)
+    ' Callback subroutine for dust density reached callback
     Sub DustDensityReachedCB(ByVal sender As BrickletDustDetector, _
                              ByVal dustDensity As Integer)
         Console.WriteLine("Dust Density: " + dustDensity.ToString() + " µg/m³")
@@ -25,7 +25,7 @@ Module ExampleThreshold
         ' Register dust density reached callback to subroutine DustDensityReachedCB
         AddHandler dd.DustDensityReachedCallback, AddressOf DustDensityReachedCB
 
-        ' Configure threshold for dust_density "greater than 10 µg/m³" (unit is µg/m³)
+        ' Configure threshold for dust_density "greater than 10 µg/m³"
         dd.SetDustDensityCallbackThreshold(">"C, 10, 0)
 
         Console.WriteLine("Press key to exit")
