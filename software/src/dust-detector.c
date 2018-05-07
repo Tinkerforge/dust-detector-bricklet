@@ -136,6 +136,7 @@ uint16_t analog_value_to_dust_density(uint16_t value) {
 void new_dust_density(void) {
 	uint16_t value = BA->adc_channel_get_data(BS->adc_channel);
 	if (BC->moving_average_num == 0) {
+		BC->moving_average_sum = value;
 		BC->value[SIMPLE_UNIT_DUST_DENSITY] = analog_value_to_dust_density(value);
 	}
 
@@ -150,9 +151,19 @@ void new_dust_density(void) {
 }
 
 void set_moving_average(const ComType com, const SetMovingAverage *data) {
+	const uint16_t current_value = BC->moving_average_num > 0 ? (BC->moving_average_sum + BC->moving_average_num/2)/BC->moving_average_num : BC->moving_average_sum;
+
 	BC->moving_average_num = data->average;
 	if(BC->moving_average_num > MOVING_AVERAGE_MAX) {
 		BC->moving_average_num = MOVING_AVERAGE_MAX;
+	}
+
+	// If the moving average changes we pre-fill the averaging array
+	// with sane default values. Otherwise we may get bogus outputs
+	// for the length of the average.
+	BC->moving_average_sum = current_value * BC->moving_average_num;
+	for(uint8_t i = 0; i < BC->moving_average_num; i++) {
+		BC->moving_average[i] = current_value;
 	}
 
 	BA->com_return_setter(com, data);
