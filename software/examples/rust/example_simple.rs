@@ -1,8 +1,6 @@
-use std::{io, error::Error};
+use std::{error::Error, io};
 
-use tinkerforge::{ip_connection::IpConnection, 
-                  dust_detector_bricklet::*};
-
+use tinkerforge::{dust_detector_bricklet::*, ip_connection::IpConnection};
 
 const HOST: &str = "localhost";
 const PORT: u16 = 4223;
@@ -13,11 +11,11 @@ fn main() -> Result<(), Box<dyn Error>> {
     let dd = DustDetectorBricklet::new(UID, &ipcon); // Create device object.
 
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
-    // Don't use device before ipcon is connected.
+                                          // Don't use device before ipcon is connected.
 
-		// Get current dust density.
-let dust_density = dd.get_dust_density().recv()?;
-		println!("Dust Density: {} µg/m³", dust_density);
+    // Get current dust density.
+    let dust_density = dd.get_dust_density().recv()?;
+    println!("Dust Density: {} µg/m³", dust_density);
 
     println!("Press enter to exit.");
     let mut _input = String::new();
