@@ -3,8 +3,10 @@
 setup:
 	# Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 	publish '{"debounce": 10000}' to tinkerforge/request/dust-detector_bricklet/XYZ/set_debounce_period
+	
 	# Handle incoming dust density reached callbacks
 	subscribe to tinkerforge/callback/dust_detector_bricklet/XYZ/dust_density_reached
 	publish '{"register": true}' to tinkerforge/register/dust_detector_bricklet/XYZ/dust_density_reached # Register dust_density_reached callback
+	
 	# Configure threshold for dust density "greater than 10 µg/m³"
-	publish '{"option": "greater", "min_dust_density": 10, "max_dust_density": 0}' to tinkerforge/request/dust_detector_bricklet/XYZ/set_dust_density_callback_threshold
+	publish '{"option": "greater", "min": 10, "max": 0}' to tinkerforge/request/dust_detector_bricklet/XYZ/set_dust_density_callback_threshold

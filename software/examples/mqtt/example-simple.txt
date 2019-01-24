@@ -2,5 +2,5 @@
 
 setup:
 	# Get current dust density
-	subscribe to tinkerforge/response/dust_detector/XYZ/get_dust_density
+	subscribe to tinkerforge/response/dust_detector_bricklet/XYZ/get_dust_density
 	publish '' to tinkerforge/request/dust_detector_bricklet/XYZ/get_dust_density 
