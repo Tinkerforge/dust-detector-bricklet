@@ -33,7 +33,7 @@ int main(void) {
 	// Register dust density callback to function cb_dust_density
 	dust_detector_register_callback(&dd,
 	                                DUST_DETECTOR_CALLBACK_DUST_DENSITY,
-	                                (void *)cb_dust_density,
+	                                (void (*)(void))cb_dust_density,
 	                                NULL);
 
 	// Set period for dust density callback to 1s (1000ms)

@@ -36,7 +36,7 @@ int main(void) {
 	// Register dust density reached callback to function cb_dust_density_reached
 	dust_detector_register_callback(&dd,
 	                                DUST_DETECTOR_CALLBACK_DUST_DENSITY_REACHED,
-	                                (void *)cb_dust_density_reached,
+	                                (void (*)(void))cb_dust_density_reached,
 	                                NULL);
 
 	// Configure threshold for dust density "greater than 10 µg/m³"
