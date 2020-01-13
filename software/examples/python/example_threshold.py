@@ -28,5 +28,5 @@ if __name__ == "__main__":
     # Configure threshold for dust density "greater than 10 µg/m³"
     dd.set_dust_density_callback_threshold(">", 10, 0)
 
-    raw_input("Press key to exit\n") # Use input() in Python 3
+    input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()
