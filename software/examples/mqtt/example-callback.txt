@@ -4,7 +4,7 @@ setup:
 	# Handle incoming dust density callbacks
 	subscribe to tinkerforge/callback/dust_detector_bricklet/XYZ/dust_density
 	publish '{"register": true}' to tinkerforge/register/dust_detector_bricklet/XYZ/dust_density # Register dust_density callback
-	
+
 	# Set period for dust density callback to 1s (1000ms)
 	# Note: The dust density callback is only called every second
 	#       if the dust density has changed since the last call!
