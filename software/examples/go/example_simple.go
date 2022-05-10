@@ -20,7 +20,7 @@ func main() {
 
 	// Get current dust density.
 	dustDensity, _ := dd.GetDustDensity()
-	fmt.Printf("Dust Density:  µg/m³\n", dustDensity)
+	fmt.Printf("Dust Density: %d µg/m³\n", dustDensity)
 
 	fmt.Print("Press enter to exit.")
 	fmt.Scanln()
